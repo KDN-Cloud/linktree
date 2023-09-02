@@ -151,7 +151,7 @@ body {
     visibility: hidden;
     opacity: 0;
     overflow: hidden;
-    transition: .50s ease-in-out;
+    transition: .5s ease-in-out;
 }
 
 .popup {
@@ -169,7 +169,7 @@ body {
     background-color: var(--bgColor);
     /* transform: rotate(32deg); */
     transform: scale(0);
-    transition: .50s ease-in-out;
+    transition: .5s ease-in-out;
 }
 
 .popup-quote {
