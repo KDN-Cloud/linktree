@@ -97,7 +97,7 @@ body {
     background: linear-gradient(90deg, var(--bgColor), var(--accentColor), var(--bgColor));
     background-repeat: no-repeat;
     background-size: 80%;
-    animation: animate -3s linear var(--delay) infinite;
+    animation: animate 3s linear var(--delay) infinite;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
@@ -151,7 +151,7 @@ body {
     visibility: hidden;
     opacity: 0;
     overflow: hidden;
-    transition: .5s ease-in-out;
+    transition: .10s ease-in-out;
 }
 
 .popup {
@@ -169,7 +169,7 @@ body {
     background-color: var(--bgColor);
     /* transform: rotate(32deg); */
     transform: scale(0);
-    transition: .5s ease-in-out;
+    transition: .10s ease-in-out;
 }
 
 .popup-quote {
