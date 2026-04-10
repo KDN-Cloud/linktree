@@ -341,7 +341,7 @@ body {
 
 /* --- FULLY TRANSPARENT GLASS BOXES --- */
 .link {
-    justify-content: space-between;
+    justify-content: center;
     display: flex;
     align-items: center;
     /* CHANGE: align to start so the icon "column" stays fixed */
@@ -363,20 +363,6 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
     transition: 0.25s;
-}
-
-/* Add a pseudo-element for the status */
-.link::after {
-    content: "SYS_READY";
-    font-size: 0.6rem;
-    color: #00d2ff;
-    opacity: 0.4;
-    border: 1px solid rgba(0, 210, 255, 0.3);
-    padding: 2px 6px;
-    border-radius: 4px;
-    letter-spacing: 0.05em;
-    transition: all 0.2s ease; /* Makes the glow/fade smooth */
-    margin-left: auto; /* This is what pushes it to the far right! */
 }
 
 /* THE DIVIDER FIX */
@@ -413,13 +399,6 @@ body {
     letter-spacing: 0.15em; /* Reduced slightly so text doesn't jitter too much */
     box-shadow: 0 0 15px rgba(0, 238, 255, 0.2);
     transform: translateY(-2px);
-}
-
-.link:hover::after {
-    opacity: 1;
-    content: "ESTABLISHED";
-    background: rgba(0, 210, 255, 0.1);
-    box-shadow: 0 0 8px rgba(0, 210, 255, 0.4);
 }
 
 .main-hq {
