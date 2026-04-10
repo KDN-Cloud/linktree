@@ -341,6 +341,7 @@ body {
 
 /* --- FULLY TRANSPARENT GLASS BOXES --- */
 .link {
+    justify-content: space-between;
     display: flex;
     align-items: center;
     /* CHANGE: align to start so the icon "column" stays fixed */
