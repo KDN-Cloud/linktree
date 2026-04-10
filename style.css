@@ -344,8 +344,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Reduced gap slightly because the divider span has its own side margins */
-    gap: 8px; 
+    gap: 8px; /* Slightly tighter gap to account for divider margins */
 
     background: transparent;
     backdrop-filter: blur(5px);
@@ -354,7 +353,7 @@ body {
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 12px;
-    color: white;
+    color: white; /* Main text remains white */
     text-decoration: none;
 
     /* Technical Styling */
@@ -365,16 +364,17 @@ body {
     transition: 0.25s;
 }
 
-/* NEW: The // Syntax Highlighting */
-.divider {
-    color: #00d2ff;      /* Electric Cyan to match your hover/stars */
-    font-weight: 800;    /* Heavier weight makes the color "pop" more */
-    margin: 0 4px;       /* Adds just enough horizontal breathing room */
-    opacity: 0.9;
-    text-shadow: 0 0 8px rgba(0, 210, 255, 0.4); /* Soft glow */
+/* THE DIVIDER FIX */
+/* We use .link .divider to ensure this color overrides the white in .link */
+.link .divider {
+    color: #00d2ff;      /* Electric Cyan */
+    font-weight: 800;    /* Bold slashes */
+    margin: 0 6px;       /* Horizontal breathing room */
+    opacity: 1;          /* Full brightness */
+    text-shadow: 0 0 8px rgba(0, 210, 255, 0.6); /* Soft glow */
 }
 
-/* Keeps all icons (FA and Signal Img) perfectly aligned */
+/* Icons and Signal Logo */
 .link i,
 .link img {
     width: 20px;
@@ -383,11 +383,12 @@ body {
     flex-shrink: 0;
 }
 
-/* Subtle glow for icons */
+/* Icon Glow */
 .link i {
     text-shadow: 0 0 8px rgba(0, 210, 255, 0.3);
 }
 
+/* Hover State */
 .link:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: #00d2ff;
