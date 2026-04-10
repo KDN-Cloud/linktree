@@ -341,39 +341,49 @@ body {
 
 /* --- FULLY TRANSPARENT GLASS BOXES --- */
 .link {
-    display: flex;             /* Merged: Changed from block to flex */
-    align-items: center;       /* New: Keeps icons and text centered */
-    justify-content: center;   /* New: Centers everything horizontally */
-    gap: 12px;                 /* New: Space between icon and text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Reduced gap slightly because the divider span has its own side margins */
+    gap: 8px; 
 
-    background: transparent; 
-    backdrop-filter: blur(5px); 
+    background: transparent;
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 12px;
     color: white;
     text-decoration: none;
-    
+
     /* Technical Styling */
-    text-transform: uppercase; /* New: Automatic caps */
-    letter-spacing: 0.12em;    /* New: The "Architect" look */
-    font-size: 0.85rem;        /* New: Slightly smaller for pro look */
-    font-weight: 600;          /* Adjusted: Slightly cleaner than 700 */
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: 600;
     transition: 0.25s;
 }
 
-/* Keeps all icons (FA and Signal Img) perfectly aligned */
-.link i, 
-.link img {
-    width: 20px;         /* Fixed width so text starts at the same spot */
-    text-align: center;  /* Centers icons within that width */
-    font-size: 1.1rem;   /* Standardizes FontAwesome size */
-    flex-shrink: 0;      /* Prevents icons from squishing on mobile */
+/* NEW: The // Syntax Highlighting */
+.divider {
+    color: #00d2ff;      /* Electric Cyan to match your hover/stars */
+    font-weight: 800;    /* Heavier weight makes the color "pop" more */
+    margin: 0 4px;       /* Adds just enough horizontal breathing room */
+    opacity: 0.9;
+    text-shadow: 0 0 8px rgba(0, 210, 255, 0.4); /* Soft glow */
 }
 
-/* Optional: Subtle glow for the icons to match your stars */
+/* Keeps all icons (FA and Signal Img) perfectly aligned */
+.link i,
+.link img {
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* Subtle glow for icons */
 .link i {
     text-shadow: 0 0 8px rgba(0, 210, 255, 0.3);
 }
@@ -381,9 +391,9 @@ body {
 .link:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: #00d2ff;
-    letter-spacing: 0.18em; 
+    letter-spacing: 0.18em;
     box-shadow: 0 0 15px rgba(0, 238, 255, 0.2);
-    transform: translateY(-2px); /* New: Makes the glass "float" when hovered */
+    transform: translateY(-2px);
 }
 
 .main-hq {
