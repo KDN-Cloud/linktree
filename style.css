@@ -376,15 +376,13 @@ body {
 
 /* --- THE ALIGNMENT FIX --- */
 /* Target both FontAwesome and the Signal img */
-.link i,
+.link i, 
 .link img {
-    width: 28px;         /* Fixed "slot" for the icon */
-    margin-right: 12px;  /* Fixed distance from icon to text */
+    width: 28px; 
     display: flex;
-    justify-content: center; /* Centers the actual icon inside the 28px slot */
-    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
     flex-shrink: 0;
-    font-size: 1.1rem;
 }
 
 /* Icon Glow */
