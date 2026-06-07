@@ -28,6 +28,14 @@ Forked from [johnggli/linktree](https://github.com/johnggli/linktree).
 
 `generator/index.html` is a local tool for building link snippets without hand-editing HTML. Open it directly in your browser — no server required.
 
+**Page Setup & SEO tab** — generates your full `<head>` meta tag block (primary SEO, Open Graph, Twitter Card) and JSON-LD schema, ready to paste into `index.html`.
+
+![SEO tab](generator/assets/screenshots/seo-tab.png)
+
+**Link Generator tab** — pick a template, fill in your link details, copy the snippet.
+
+![Link Generator tab](generator/assets/screenshots/link-tab.png)
+
 **Eight template styles:**
 - **AK / Terminal** — dark mono card, Font Awesome/Bootstrap icons, optional `//` suffix label
 - **Minimal** — clean white card, arrow prefix, no icons
