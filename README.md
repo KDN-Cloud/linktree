@@ -29,7 +29,10 @@ Forked from [johnggli/linktree](https://github.com/johnggli/linktree).
 
 `generator/index.html` is a local tool for building link snippets without hand-editing HTML. Open it directly in your browser — no server required.
 
-**Page Setup & SEO tab** — generates your full `<head>` meta tag block (primary SEO, Open Graph, Twitter Card) and JSON-LD schema, ready to paste into `index.html`.
+**Page Setup & SEO tab** — generates three ready-to-paste outputs:
+- **Meta tags** — full `<head>` block covering primary SEO, Open Graph, and Twitter Card
+- **JSON-LD schema** — structured data with `ProfilePage` and `Person` schema including `sameAs`, location, and `worksFor`
+- **Profile block** — the `<header>` HTML for your page including profile image, username, and optional quote/tagline
 
 ![SEO tab](generator/assets/screenshots/seo-tab.png)
 
