@@ -30,235 +30,483 @@
     </div>
   </div>
 
-  <div class="wrap">
-
-    <!-- ── STEP 1: Template ── -->
-    <div class="panel">
-      <div class="panel-head">
-        <i class="fa-solid fa-layer-group" style="font-size:11px;color:var(--text3)"></i>
-        <span class="panel-title">Template</span>
-        <span class="panel-sub">step 1 of 3</span>
+  <!-- ── PAGE TAB NAV ── -->
+  <div class="page-nav">
+    <div class="wrap">
+      <div class="page-tabs">
+        <button class="page-tab active" id="page-tab-seo" onclick="setPage('seo')">
+          <i class="fa-solid fa-magnifying-glass"></i> Page Setup &amp; SEO
+        </button>
+        <button class="page-tab" id="page-tab-links" onclick="setPage('links')">
+          <i class="fa-solid fa-link"></i> Link Generator
+        </button>
       </div>
-      <div class="panel-body">
-        <div class="tpl-grid">
+    </div>
+  </div>
 
-          <div class="tpl active" onclick="setTpl('ak')" id="tpl-ak">
-            <div class="tpl-prev">
-              <div class="pk"><i class="fa-brands fa-github"></i><span class="lbl">GITHUB</span><span class="dv">//</span><span class="sf">CODE</span></div>
-              <div class="pk"><i class="fa-solid fa-terminal"></i><span class="lbl">SYS_LOG</span></div>
+  <!-- ══════════════════════════════════════════
+       PAGE: SEO / PAGE SETUP
+  ══════════════════════════════════════════ -->
+  <div id="page-seo" class="page-section">
+    <div class="wrap">
+      <div class="seo-grid">
+
+        <!-- LEFT col: identity + org + location + sameAs -->
+        <div>
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-user" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">Identity</span>
             </div>
-            <div class="tpl-name">AK / Terminal</div>
-            <div class="tpl-desc">Dark mono, FA icons, optional // suffix</div>
+            <div class="panel-body">
+
+              <div class="field">
+                <label for="seo-name">Full name</label>
+                <input type="text" id="seo-name" placeholder="Anthony Klein">
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                <div class="field">
+                  <label for="seo-first-name">First name</label>
+                  <input type="text" id="seo-first-name" placeholder="Anthony">
+                </div>
+                <div class="field">
+                  <label for="seo-last-name">Last name</label>
+                  <input type="text" id="seo-last-name" placeholder="Klein">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="seo-username">Username / handle <span class="opt">for og:profile</span></label>
+                <input type="text" id="seo-username" placeholder="variablenix">
+              </div>
+
+              <div class="field">
+                <label for="seo-job-title">Job title</label>
+                <input type="text" id="seo-job-title" placeholder="Senior Infrastructure Engineer">
+              </div>
+
+              <div class="field">
+                <label for="seo-bio">Bio / schema description <span class="opt">for JSON-LD Person</span></label>
+                <input type="text" id="seo-bio" placeholder="Infrastructure engineer with 20+ years experience...">
+              </div>
+
+              <div class="field">
+                <label for="seo-website">Personal website URL</label>
+                <input type="text" id="seo-website" placeholder="https://aklein.pro/">
+              </div>
+
+            </div>
           </div>
 
-          <div class="tpl" onclick="setTpl('minimal')" id="tpl-minimal">
-            <div class="tpl-prev">
-              <div class="pm"><span class="arr">→</span> GitHub</div>
-              <div class="pm"><span class="arr">→</span> LinkedIn</div>
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-building" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">Organization</span>
             </div>
-            <div class="tpl-name">Minimal</div>
-            <div class="tpl-desc">Clean white cards, arrow prefix, no icons</div>
+            <div class="panel-body">
+              <div class="field">
+                <label for="seo-org-name">Organization name</label>
+                <input type="text" id="seo-org-name" placeholder="Klein Technology Consulting LLC">
+              </div>
+              <div class="field">
+                <label for="seo-org-url">Organization URL</label>
+                <input type="text" id="seo-org-url" placeholder="https://aklein.pro/">
+              </div>
+            </div>
           </div>
 
-          <div class="tpl" onclick="setTpl('bold')" id="tpl-bold">
-            <div class="tpl-prev">
-              <div class="pb">★ GITHUB</div>
-              <div class="pb">♫ SOUNDCLOUD</div>
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-location-dot" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">Location</span>
             </div>
-            <div class="tpl-name">Bold Dark</div>
-            <div class="tpl-desc">Black buttons, uppercase, symbol prefix</div>
+            <div class="panel-body">
+              <div style="display:grid;grid-template-columns:1fr 1fr 80px;gap:8px">
+                <div class="field">
+                  <label for="seo-city">City</label>
+                  <input type="text" id="seo-city" placeholder="Las Vegas">
+                </div>
+                <div class="field">
+                  <label for="seo-region">State / Region</label>
+                  <input type="text" id="seo-region" placeholder="NV">
+                </div>
+                <div class="field">
+                  <label for="seo-country">Country</label>
+                  <input type="text" id="seo-country" placeholder="US" value="US">
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="tpl" onclick="setTpl('glass')" id="tpl-glass">
-            <div class="tpl-prev" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:4px;padding:4px">
-              <div class="pg"><i class="fa-brands fa-github"></i> GitHub</div>
-              <div class="pg"><i class="fa-solid fa-music"></i> Music</div>
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-link" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">sameAs URLs <span class="opt" style="font-weight:400;font-size:10px">for JSON-LD schema</span></span>
             </div>
-            <div class="tpl-name">Glassmorphism</div>
-            <div class="tpl-desc">Frosted glass card, translucent border</div>
+            <div class="panel-body">
+              <div class="hint" style="margin-bottom:10px">All public profile URLs that represent you — GitHub, LinkedIn, personal site, etc.</div>
+              <div class="sameas-list" id="sameas-list"></div>
+              <button class="sameas-add" onclick="addSameAs()">
+                <i class="fa-solid fa-plus"></i> Add URL
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT col: page meta + image + output -->
+        <div>
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-file-code" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">Page meta</span>
+            </div>
+            <div class="panel-body">
+
+              <div class="field">
+                <div class="field-meta">
+                  <label for="seo-title">Page title</label>
+                  <span class="char-count" id="seo-title-count">0 / 60</span>
+                </div>
+                <input type="text" id="seo-title" placeholder="Anthony Klein // Central Hub">
+                <div class="hint">Used for &lt;title&gt;, og:title, twitter:title. Keep under 60 chars.</div>
+              </div>
+
+              <div class="field">
+                <div class="field-meta">
+                  <label for="seo-description">Meta description</label>
+                  <span class="char-count" id="seo-description-count">0 / 160</span>
+                </div>
+                <input type="text" id="seo-description" placeholder="Infrastructure engineer, consultant, and DJ. All links in one place.">
+                <div class="hint">Shown in search results. Aim for 120–155 chars.</div>
+              </div>
+
+              <div class="field">
+                <div class="field-meta">
+                  <label for="seo-og-desc">OG description <span class="opt">if different</span></label>
+                  <span class="char-count" id="seo-og-desc-count">0 / 160</span>
+                </div>
+                <input type="text" id="seo-og-desc" placeholder="Leave blank to use meta description">
+              </div>
+
+              <div class="field">
+                <div class="field-meta">
+                  <label for="seo-tw-desc">Twitter description <span class="opt">if different</span></label>
+                  <span class="char-count" id="seo-tw-desc-count">0 / 140</span>
+                </div>
+                <input type="text" id="seo-tw-desc" placeholder="Leave blank to use meta description">
+              </div>
+
+              <div class="field">
+                <label for="seo-canonical">Canonical URL</label>
+                <input type="text" id="seo-canonical" placeholder="https://linktree.yourdomain.com/">
+              </div>
+
+              <div class="field">
+                <label for="seo-site-name">Site name <span class="opt">og:site_name</span></label>
+                <input type="text" id="seo-site-name" placeholder="Anthony Klein">
+              </div>
+
+            </div>
           </div>
 
-          <div class="tpl" onclick="setTpl('retro')" id="tpl-retro">
-            <div class="tpl-prev">
-              <div class="pr"><i class="fa-solid fa-terminal"></i> GITHUB<span class="cur">_</span></div>
-              <div class="pr"><i class="fa-solid fa-radio"></i> RADIO</div>
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-regular fa-image" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">Profile image</span>
             </div>
-            <div class="tpl-name">Retro Terminal</div>
-            <div class="tpl-desc">Green-on-black CRT, blinking cursor</div>
+            <div class="panel-body">
+              <div class="field">
+                <label for="seo-image">Image URL</label>
+                <input type="text" id="seo-image" placeholder="https://avatars.githubusercontent.com/u/YOUR_ID">
+                <div class="hint">Used for favicon, apple-touch-icon, og:image, twitter:image. GitHub avatar URL works well.</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 60px 60px;gap:8px;align-items:end">
+                <div class="field">
+                  <label for="seo-image-alt">Image alt text</label>
+                  <input type="text" id="seo-image-alt" placeholder="Your Name profile photo">
+                </div>
+                <div class="field">
+                  <label for="seo-image-w">Width</label>
+                  <input type="text" id="seo-image-w" placeholder="460" value="460">
+                </div>
+                <div class="field">
+                  <label for="seo-image-h">Height</label>
+                  <input type="text" id="seo-image-h" placeholder="460" value="460">
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="tpl" onclick="setTpl('pill')" id="tpl-pill">
-            <div class="tpl-prev">
-              <div class="pp"><i class="fa-brands fa-github"></i> GitHub</div>
-              <div class="pp"><i class="fa-solid fa-briefcase"></i> Portfolio</div>
+          <!-- SEO OUTPUT -->
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-code" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">Output</span>
+              <span class="panel-sub">paste into &lt;head&gt;</span>
             </div>
-            <div class="tpl-name">Pill / Rounded</div>
-            <div class="tpl-desc">Gradient pill buttons, modern app feel</div>
-          </div>
-
-          <div class="tpl" onclick="setTpl('editorial')" id="tpl-editorial">
-            <div class="tpl-prev" style="background:#fff;border-radius:4px;padding:4px 6px">
-              <div class="pe">GitHub <span class="ep">→</span></div>
-              <div class="pe">LinkedIn <span class="ep">→</span></div>
+            <div class="panel-body">
+              <div class="seo-tabs">
+                <div class="seo-tab active" onclick="setSeoTab('meta')" id="seo-tab-meta" title="Full meta tag block for the head section">Meta tags</div>
+                <div class="seo-tab" onclick="setSeoTab('schema')" id="seo-tab-schema" title="JSON-LD schema script block for the head section">JSON-LD schema</div>
+              </div>
+              <div class="code-wrap">
+                <div class="code-block">
+                  <pre id="seo-output-pre" style="max-height:280px;overflow-y:auto"></pre>
+                </div>
+              </div>
+              <div class="btn-row">
+                <button class="btn btn-primary" onclick="copySeо()">
+                  <i class="fa-regular fa-copy"></i> Copy
+                </button>
+                <span class="copy-ok" id="seo-copy-ok">
+                  <i class="fa-solid fa-check"></i> Copied
+                </span>
+              </div>
             </div>
-            <div class="tpl-name">Editorial</div>
-            <div class="tpl-desc">Serif italic, underline only, typographic</div>
-          </div>
-
-          <div class="tpl" onclick="setTpl('corporate')" id="tpl-corporate">
-            <div class="tpl-prev" style="background:#f6f8fa;border-radius:4px;padding:4px">
-              <div class="pc"><i class="fa-brands fa-github"></i><span class="pc-lbl">GitHub</span><span class="pc-sub">Code</span></div>
-              <div class="pc"><i class="fa-solid fa-briefcase"></i><span class="pc-lbl">Portfolio</span><span class="pc-sub">Work</span></div>
-            </div>
-            <div class="tpl-name">Corporate</div>
-            <div class="tpl-desc">White card, left-aligned, icon + sublabel</div>
           </div>
 
         </div>
-      </div>
-    </div>
+      </div><!-- /.seo-grid -->
+    </div><!-- /.wrap -->
+  </div><!-- #page-seo -->
 
-    <div class="grid">
 
-      <!-- ── STEP 2: Link Details ── -->
-      <div>
-        <div class="panel">
-          <div class="panel-head">
-            <i class="fa-solid fa-link" style="font-size:11px;color:var(--text3)"></i>
-            <span class="panel-title">Link details</span>
-            <span class="panel-sub">step 2 of 3</span>
+  <!-- ══════════════════════════════════════════
+       PAGE: LINK GENERATOR
+  ══════════════════════════════════════════ -->
+  <div id="page-links" class="page-section" style="display:none">
+    <div class="wrap">
+
+      <!-- ── STEP 1: Template ── -->
+      <div class="panel">
+        <div class="panel-head">
+          <i class="fa-solid fa-layer-group" style="font-size:11px;color:var(--text3)"></i>
+          <span class="panel-title">Template</span>
+          <span class="panel-sub">step 1 of 3</span>
+        </div>
+        <div class="panel-body">
+          <div class="tpl-grid">
+
+            <div class="tpl active" onclick="setTpl('ak')" id="tpl-ak">
+              <div class="tpl-prev">
+                <div class="pk"><i class="fa-brands fa-github"></i><span class="lbl">GITHUB</span><span class="dv">//</span><span class="sf">CODE</span></div>
+                <div class="pk"><i class="fa-solid fa-terminal"></i><span class="lbl">SYS_LOG</span></div>
+              </div>
+              <div class="tpl-name">AK / Terminal</div>
+              <div class="tpl-desc">Dark mono, FA icons, optional // suffix</div>
+            </div>
+
+            <div class="tpl" onclick="setTpl('minimal')" id="tpl-minimal">
+              <div class="tpl-prev">
+                <div class="pm"><span class="arr">→</span> GitHub</div>
+                <div class="pm"><span class="arr">→</span> LinkedIn</div>
+              </div>
+              <div class="tpl-name">Minimal</div>
+              <div class="tpl-desc">Clean white cards, arrow prefix, no icons</div>
+            </div>
+
+            <div class="tpl" onclick="setTpl('bold')" id="tpl-bold">
+              <div class="tpl-prev">
+                <div class="pb">★ GITHUB</div>
+                <div class="pb">♫ SOUNDCLOUD</div>
+              </div>
+              <div class="tpl-name">Bold Dark</div>
+              <div class="tpl-desc">Black buttons, uppercase, symbol prefix</div>
+            </div>
+
+            <div class="tpl" onclick="setTpl('glass')" id="tpl-glass">
+              <div class="tpl-prev" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:4px;padding:4px">
+                <div class="pg"><i class="fa-brands fa-github"></i> GitHub</div>
+                <div class="pg"><i class="fa-solid fa-music"></i> Music</div>
+              </div>
+              <div class="tpl-name">Glassmorphism</div>
+              <div class="tpl-desc">Frosted glass card, translucent border</div>
+            </div>
+
+            <div class="tpl" onclick="setTpl('retro')" id="tpl-retro">
+              <div class="tpl-prev">
+                <div class="pr"><i class="fa-solid fa-terminal"></i> GITHUB<span class="cur">_</span></div>
+                <div class="pr"><i class="fa-solid fa-radio"></i> RADIO</div>
+              </div>
+              <div class="tpl-name">Retro Terminal</div>
+              <div class="tpl-desc">Green-on-black CRT, blinking cursor</div>
+            </div>
+
+            <div class="tpl" onclick="setTpl('pill')" id="tpl-pill">
+              <div class="tpl-prev">
+                <div class="pp"><i class="fa-brands fa-github"></i> GitHub</div>
+                <div class="pp"><i class="fa-solid fa-briefcase"></i> Portfolio</div>
+              </div>
+              <div class="tpl-name">Pill / Rounded</div>
+              <div class="tpl-desc">Gradient pill buttons, modern app feel</div>
+            </div>
+
+            <div class="tpl" onclick="setTpl('editorial')" id="tpl-editorial">
+              <div class="tpl-prev" style="background:#fff;border-radius:4px;padding:4px 6px">
+                <div class="pe">GitHub <span class="ep">→</span></div>
+                <div class="pe">LinkedIn <span class="ep">→</span></div>
+              </div>
+              <div class="tpl-name">Editorial</div>
+              <div class="tpl-desc">Serif italic, underline only, typographic</div>
+            </div>
+
+            <div class="tpl" onclick="setTpl('corporate')" id="tpl-corporate">
+              <div class="tpl-prev" style="background:#f6f8fa;border-radius:4px;padding:4px">
+                <div class="pc"><i class="fa-brands fa-github"></i><span class="pc-lbl">GitHub</span><span class="pc-sub">Code</span></div>
+                <div class="pc"><i class="fa-solid fa-briefcase"></i><span class="pc-lbl">Portfolio</span><span class="pc-sub">Work</span></div>
+              </div>
+              <div class="tpl-name">Corporate</div>
+              <div class="tpl-desc">White card, left-aligned, icon + sublabel</div>
+            </div>
+
           </div>
-          <div class="panel-body">
+        </div>
+      </div>
 
-            <div class="field">
-              <label for="inp-label">Display label</label>
-              <input type="text" id="inp-label" placeholder="GITHUB" oninput="update()">
+      <div class="grid">
+
+        <!-- ── STEP 2: Link Details ── -->
+        <div>
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-link" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">Link details</span>
+              <span class="panel-sub">step 2 of 3</span>
             </div>
+            <div class="panel-body">
 
-            <div class="field">
-              <label for="inp-url">URL</label>
-              <input type="text" id="inp-url" placeholder="https://github.com/you" oninput="update()">
-            </div>
-
-            <!-- icon: ak, glass, retro, pill, corporate -->
-            <div id="icon-section">
               <div class="field">
-                <label>Font Awesome / Bootstrap icon class</label>
-                <div class="icon-row">
-                  <input type="text" id="inp-icon" placeholder="fa-brands fa-github" oninput="update()">
-                  <div class="icon-prev" id="icon-prev" title="Live icon preview — updates as you type">
-                    <i class="fa-brands fa-github"></i>
+                <label for="inp-label">Display label</label>
+                <input type="text" id="inp-label" placeholder="GITHUB" oninput="update()">
+              </div>
+
+              <div class="field">
+                <label for="inp-url">URL</label>
+                <input type="text" id="inp-url" placeholder="https://github.com/you" oninput="update()">
+              </div>
+
+              <!-- icon: ak, glass, retro, pill, corporate -->
+              <div id="icon-section">
+                <div class="field">
+                  <label>Font Awesome / Bootstrap icon class</label>
+                  <div class="icon-row">
+                    <input type="text" id="inp-icon" placeholder="fa-brands fa-github" oninput="update()">
+                    <div class="icon-prev" id="icon-prev" title="Live icon preview — updates as you type">
+                      <i class="fa-brands fa-github"></i>
+                    </div>
+                  </div>
+                  <div class="hint">
+                    <strong>Font Awesome (free tier):</strong> <a href="https://fontawesome.com/search?m=free" target="_blank">fontawesome.com/icons</a> &mdash;
+                    e.g. <code>fa-brands fa-github</code>, <code>fa-solid fa-briefcase</code>, <code>fa-solid fa-music</code><br>
+                    <strong>Bootstrap Icons (all free):</strong> <a href="https://icons.getbootstrap.com/" target="_blank">icons.getbootstrap.com</a> &mdash;
+                    e.g. <code>bi bi-github</code>, <code>bi bi-briefcase</code>, <code>bi bi-music-note</code>
                   </div>
                 </div>
-                <div class="hint">
-                  <strong>Font Awesome (free tier):</strong> <a href="https://fontawesome.com/search?m=free" target="_blank">fontawesome.com/icons</a> &mdash;
-                  e.g. <code>fa-brands fa-github</code>, <code>fa-solid fa-briefcase</code>, <code>fa-solid fa-music</code><br>
-                  <strong>Bootstrap Icons (all free):</strong> <a href="https://icons.getbootstrap.com/" target="_blank">icons.getbootstrap.com</a> &mdash;
-                  e.g. <code>bi bi-github</code>, <code>bi bi-briefcase</code>, <code>bi bi-music-note</code>
+              </div>
+
+              <!-- suffix: ak only -->
+              <div id="suffix-section">
+                <div class="field">
+                  <label for="inp-suffix">Suffix label <span class="opt">after // — optional</span></label>
+                  <input type="text" id="inp-suffix" placeholder="CODE_REPOSITORY" oninput="update()">
+                  <div class="hint">Appears after <code>//</code> in the terminal style — e.g. <code>CODE_REPOSITORY</code>, <code>PERSONAL_BLOG</code>, <code>RADIO_STATION</code>. Watch the preview update live.</div>
                 </div>
               </div>
-            </div>
 
-            <!-- suffix: ak only -->
-            <div id="suffix-section">
+              <!-- prefix: bold only -->
+              <div id="prefix-section" style="display:none">
+                <div class="field">
+                  <label for="inp-prefix">Prefix symbol <span class="opt">optional</span></label>
+                  <input type="text" id="inp-prefix" placeholder="★ or ♫" oninput="update()">
+                </div>
+              </div>
+
+              <!-- sublabel: corporate only -->
+              <div id="sublabel-section" style="display:none">
+                <div class="field">
+                  <label for="inp-sublabel">Sublabel <span class="opt">secondary line — optional</span></label>
+                  <input type="text" id="inp-sublabel" placeholder="e.g. Code Repository" oninput="update()">
+                  <div class="hint">Shown as smaller secondary text next to the main label — great for adding context like a job title or platform name.</div>
+                </div>
+              </div>
+
+              <hr>
+
               <div class="field">
-                <label for="inp-suffix">Suffix label <span class="opt">after // — optional</span></label>
-                <input type="text" id="inp-suffix" placeholder="CODE_REPOSITORY" oninput="update()">
-                <div class="hint">Appears after <code>//</code> in the terminal style — e.g. <code>CODE_REPOSITORY</code>, <code>PERSONAL_BLOG</code>, <code>RADIO_STATION</code>. Watch the preview update live.</div>
+                <label>Category / section</label>
+                <div class="hint" style="margin-bottom:8px">Groups links under a section header in your page. Select a category before copying — use the <strong>Full block</strong> tab to include the header in the output.</div>
+                <div class="cat-chips" id="cat-chips"></div>
+                <div class="cat-add">
+                  <input type="text" id="new-cat" placeholder="New category…" onkeydown="if(event.key==='Enter')addCat()">
+                  <button onclick="addCat()">+ Add</button>
+                </div>
               </div>
+
             </div>
-
-            <!-- prefix: bold only -->
-            <div id="prefix-section" style="display:none">
-              <div class="field">
-                <label for="inp-prefix">Prefix symbol <span class="opt">optional</span></label>
-                <input type="text" id="inp-prefix" placeholder="★ or ♫" oninput="update()">
-              </div>
-            </div>
-
-            <!-- sublabel: corporate only -->
-            <div id="sublabel-section" style="display:none">
-              <div class="field">
-                <label for="inp-sublabel">Sublabel <span class="opt">secondary line — optional</span></label>
-                <input type="text" id="inp-sublabel" placeholder="e.g. Code Repository" oninput="update()">
-                <div class="hint">Shown as smaller secondary text next to the main label — great for adding context like a job title or platform name.</div>
-              </div>
-            </div>
-
-            <hr>
-
-            <div class="field">
-              <label>Category / section</label>
-              <div class="hint" style="margin-bottom:8px">Groups links under a section header in your page. Select a category before copying — use the <strong>Full block</strong> tab to include the header in the output.</div>
-              <div class="cat-chips" id="cat-chips"></div>
-              <div class="cat-add">
-                <input type="text" id="new-cat" placeholder="New category…" onkeydown="if(event.key==='Enter')addCat()">
-                <button onclick="addCat()">+ Add</button>
-              </div>
-            </div>
-
           </div>
+        </div>
+
+        <!-- ── STEP 3: Output ── -->
+        <div>
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-code" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">Output</span>
+              <span class="panel-sub">step 3 of 3</span>
+            </div>
+            <div class="panel-body">
+
+              <div class="prev-label">Preview</div>
+              <div class="prev-wrap">
+                <div id="live-preview" style="width:100%"></div>
+              </div>
+
+              <div class="tabs">
+                <div class="tab active" onclick="setTab('snippet')" id="tab-snippet" title="Just the link element — paste inside an existing category block">Snippet</div>
+                <div class="tab"        onclick="setTab('full')"    id="tab-full"    title="Includes the category-label div above the link — use when starting a new section">Full block</div>
+              </div>
+              <div class="code-wrap">
+                <div class="code-block">
+                  <pre id="output-pre"></pre>
+                </div>
+              </div>
+
+              <div class="btn-row">
+                <button class="btn btn-primary" onclick="copyOut()">
+                  <i class="fa-regular fa-copy"></i> Copy
+                </button>
+                <button class="btn btn-ghost" onclick="saveHist()">
+                  <i class="fa-regular fa-bookmark"></i> Save
+                </button>
+                <span class="copy-ok" id="copy-ok">
+                  <i class="fa-solid fa-check"></i> Copied
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ── History ── -->
+          <div class="panel">
+            <div class="panel-head">
+              <i class="fa-solid fa-clock-rotate-left" style="font-size:11px;color:var(--text3)"></i>
+              <span class="panel-title">History</span>
+              <span class="panel-sub" title="History is cleared when you close or refresh this page">session only</span>
+            </div>
+            <div class="panel-body">
+              <div class="hist-list" id="hist-list">
+                <div class="empty">No saved links yet.</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- ── STEP 3: Output ── -->
-      <div>
-        <div class="panel">
-          <div class="panel-head">
-            <i class="fa-solid fa-code" style="font-size:11px;color:var(--text3)"></i>
-            <span class="panel-title">Output</span>
-            <span class="panel-sub">step 3 of 3</span>
-          </div>
-          <div class="panel-body">
+    </div><!-- /.wrap -->
+  </div><!-- #page-links -->
 
-            <div class="prev-label">Preview</div>
-            <div class="prev-wrap">
-              <div id="live-preview" style="width:100%"></div>
-            </div>
-
-            <div class="tabs">
-              <div class="tab active" onclick="setTab('snippet')" id="tab-snippet" title="Just the link element — paste inside an existing category block">Snippet</div>
-              <div class="tab"        onclick="setTab('full')"    id="tab-full"    title="Includes the category-label div above the link — use when starting a new section">Full block</div>
-            </div>
-            <div class="code-wrap">
-              <div class="code-block">
-                <pre id="output-pre"></pre>
-              </div>
-            </div>
-
-            <div class="btn-row">
-              <button class="btn btn-primary" onclick="copyOut()">
-                <i class="fa-regular fa-copy"></i> Copy
-              </button>
-              <button class="btn btn-ghost" onclick="saveHist()">
-                <i class="fa-regular fa-bookmark"></i> Save
-              </button>
-              <span class="copy-ok" id="copy-ok">
-                <i class="fa-solid fa-check"></i> Copied
-              </span>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ── History ── -->
-        <div class="panel">
-          <div class="panel-head">
-            <i class="fa-solid fa-clock-rotate-left" style="font-size:11px;color:var(--text3)"></i>
-            <span class="panel-title">History</span>
-            <span class="panel-sub" title="History is cleared when you close or refresh this page">session only</span>
-          </div>
-          <div class="panel-body">
-            <div class="hist-list" id="hist-list">
-              <div class="empty">No saved links yet.</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div><!-- /.wrap -->
 
   <!-- ── FOOTER ── -->
   <div class="footer">
@@ -273,6 +521,7 @@
 
   <!-- Templates must load before app so buildSnippet/buildPreview are defined -->
   <script src="assets/templates.js"></script>
+  <script src="assets/seo.js"></script>
   <script src="assets/app.js"></script>
 
 </body>

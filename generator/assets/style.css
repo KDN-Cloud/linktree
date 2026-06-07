@@ -283,3 +283,81 @@ body[data-theme="dark"] .copy-ok,body[data-theme="navy"] .copy-ok,body[data-them
 .footer a{color:var(--text2);text-decoration:none}
 .footer a:hover{color:var(--text);text-decoration:underline}
 .footer-brand{font-weight:600;color:var(--text2)}
+
+/* ============================================================
+   SEO Generator — additional styles
+   ============================================================ */
+
+/* ── SEO SECTION HEADER ── */
+.section-divider{
+  display:flex;align-items:center;gap:10px;margin:1.5rem 0 1rem;
+}
+.section-divider-line{flex:1;border-top:1px solid var(--border)}
+.section-divider-label{
+  font-size:10px;font-weight:600;color:var(--text3);
+  letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
+}
+
+/* ── SEO GRID ── */
+.seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+@media(max-width:680px){.seo-grid{grid-template-columns:1fr}}
+
+/* ── SAMEAS LIST ── */
+.sameas-list{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
+.sameas-item{
+  display:flex;align-items:center;gap:6px;
+}
+.sameas-item input{flex:1}
+.sameas-del{
+  background:none;border:none;color:var(--text3);cursor:pointer;
+  font-size:15px;line-height:1;padding:0 3px;transition:color .15s;flex-shrink:0;
+}
+.sameas-del:hover{color:#f85149}
+.sameas-add{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);
+  color:var(--text2);font-size:11px;font-weight:500;padding:5px 10px;cursor:pointer;
+  white-space:nowrap;transition:all .15s;font-family:inherit;display:inline-flex;align-items:center;gap:5px;
+}
+.sameas-add:hover{background:var(--surface3);border-color:var(--border2);color:var(--text)}
+
+/* ── SEO OUTPUT TABS ── */
+.seo-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:0}
+.seo-tab{
+  font-size:11px;font-weight:500;color:var(--text2);
+  padding:7px 12px;cursor:pointer;border-bottom:2px solid transparent;
+  transition:color .15s,border-color .15s;margin-bottom:-1px;
+}
+.seo-tab:hover{color:var(--text)}
+.seo-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ── CHAR COUNTER ── */
+.field-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.field-meta label{margin-bottom:0}
+.char-count{font-size:10px;color:var(--text3);font-variant-numeric:tabular-nums}
+.char-count.warn{color:#d29922}
+.char-count.over{color:#f85149}
+
+/* ── PAGE TAB NAV ── */
+.page-nav{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  margin-bottom:1.5rem;
+}
+.page-tabs{
+  display:flex;gap:0;
+}
+.page-tab{
+  font-family:inherit;font-size:12px;font-weight:500;
+  color:var(--text2);background:transparent;border:none;
+  padding:10px 18px;cursor:pointer;
+  border-bottom:2px solid transparent;
+  display:flex;align-items:center;gap:6px;
+  transition:color .15s,border-color .15s;
+  margin-bottom:-1px;
+}
+.page-tab:hover{color:var(--text)}
+.page-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.page-tab i{font-size:11px}
+
+/* ── PAGE SECTIONS ── */
+.page-section{padding-top:.5rem}
+

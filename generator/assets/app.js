@@ -10,6 +10,14 @@ var activeCat = 'The Command Center';
 var hist      = [];
 var cats      = ['The Command Center', 'The Sound Booth', 'Active Uplinks'];
 
+/* ── PAGE TABS ── */
+function setPage(p) {
+  document.getElementById('page-seo').style.display   = p === 'seo'   ? '' : 'none';
+  document.getElementById('page-links').style.display = p === 'links' ? '' : 'none';
+  document.getElementById('page-tab-seo').classList.toggle('active',   p === 'seo');
+  document.getElementById('page-tab-links').classList.toggle('active', p === 'links');
+}
+
 /* ── THEME ── */
 function setTheme(t) {
   document.body.setAttribute('data-theme', t);
@@ -169,3 +177,4 @@ function delHist(i) {
 /* ── INIT ── */
 renderCats();
 update();
+initSeo();
