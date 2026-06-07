@@ -25,6 +25,12 @@ Forked from [johnggli/linktree](https://github.com/johnggli/linktree).
 
 ---
 
+## Why meta tags and schema matter
+
+When someone shares your links page in Slack, Discord, iMessage, or on social media, the platform fetches your page's meta tags to build a preview card — your name, description, and profile photo. Without them it shows the URL and nothing else. Open Graph tags control that preview on most platforms, Twitter Card tags handle X/Twitter specifically, and the JSON-LD schema block tells Google what your page actually is (a person's profile page) rather than making it guess. That structured data can improve how your page appears in search results and is the same technique used by major sites to get rich results. None of it is required for the page to work, but it's the difference between a link that looks professional when shared and one that looks like a dead URL.
+
+---
+
 ## Using the generator
 
 `generator/index.html` is a local tool for building link snippets without hand-editing HTML. Open it directly in your browser — no server required.
@@ -144,5 +150,4 @@ Copyright (c) 2026 Anthony Klein / [KDN-Cloud](https://github.com/KDN-Cloud) —
 
 ---
 
-Made with ❤️  by Anthony Klein 👋 [Get in touch](https://links.aklein.pro)
-
+Made with ❤️ by Anthony Klein 👋 [Get in touch](https://links.aklein.pro)
