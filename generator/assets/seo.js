@@ -86,9 +86,32 @@ function delSameAs(i) {
 /* ── TAB ── */
 function setSeoTab(t) {
   seoTab = t;
-  document.getElementById('seo-tab-meta').classList.toggle('active', t === 'meta');
-  document.getElementById('seo-tab-schema').classList.toggle('active', t === 'schema');
+  document.getElementById('seo-tab-meta').classList.toggle('active',    t === 'meta');
+  document.getElementById('seo-tab-schema').classList.toggle('active',  t === 'schema');
+  document.getElementById('seo-tab-profile').classList.toggle('active', t === 'profile');
   seoUpdate();
+}
+
+/* ── BUILD PROFILE BLOCK ── */
+function buildProfileBlock() {
+  var name    = seoVal('seo-name')    || 'Your Name';
+  var handle  = seoVal('seo-username')|| name;
+  var image   = seoVal('seo-image')   || '';
+  var quote   = seoVal('seo-quote')   || '';
+  var imgAlt  = seoVal('seo-image-alt') || name + ' profile photo';
+
+  var lines = [];
+  lines.push('<header>');
+  if (image) {
+    lines.push('  <img src="' + esc(image) + '" class="profile-pic" alt="' + esc(imgAlt) + '">');
+  }
+  lines.push('  <h1 id="userName">@' + esc(handle) + '</h1>');
+  if (quote) {
+    lines.push('  <p class="quote">"' + esc(quote) + '"</p>');
+  }
+  lines.push('</header>');
+
+  return lines.join('\n');
 }
 
 /* ── BUILD META TAGS ── */
@@ -206,13 +229,17 @@ function buildSchema() {
 
 /* ── UPDATE OUTPUT ── */
 function seoUpdate() {
-  var out = seoTab === 'meta' ? buildMetaTags() : buildSchema();
+  var out = seoTab === 'meta'    ? buildMetaTags()    :
+            seoTab === 'schema'  ? buildSchema()      :
+                                   buildProfileBlock();
   document.getElementById('seo-output-pre').textContent = out;
 }
 
 /* ── COPY ── */
 function copySeо() {
-  var out = seoTab === 'meta' ? buildMetaTags() : buildSchema();
+  var out = seoTab === 'meta'    ? buildMetaTags()    :
+            seoTab === 'schema'  ? buildSchema()      :
+                                   buildProfileBlock();
   navigator.clipboard.writeText(out).catch(function() {
     var ta = document.createElement('textarea');
     ta.value = out; document.body.appendChild(ta); ta.select();
@@ -234,7 +261,8 @@ function initSeo() {
     'seo-title','seo-description','seo-og-desc','seo-tw-desc',
     'seo-canonical','seo-image','seo-image-alt','seo-image-w','seo-image-h',
     'seo-site-name','seo-job-title','seo-bio','seo-website',
-    'seo-org-name','seo-org-url','seo-city','seo-region','seo-country'
+    'seo-org-name','seo-org-url','seo-city','seo-region','seo-country',
+    'seo-quote'
   ];
   ids.forEach(function(id) {
     var el = document.getElementById(id);
