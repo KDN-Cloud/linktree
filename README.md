@@ -97,6 +97,10 @@ https://avatars.githubusercontent.com/u/YOUR_NUMERIC_USER_ID
 The `//` is a hardcoded visual divider built into the template style. What comes after it — the suffix label — is entirely up to you: `CODE_REPOSITORY`, `PERSONAL_BLOG`, `RADIO_STATION`, anything. Leave out the `<span class="divider">` line entirely if you don't want a suffix on that link.
 
 **Adding a category label:**
+
+The generator handles this automatically. Select or create a category in the Link Generator tab, switch to the **Full block** output tab, and the `<div class="category-label">` header is included in the copied snippet. Examples from my setup: `The Command Center` for professional and infrastructure links, `The Sound Booth` for music and creative, `Active Uplinks` for communication channels.
+
+To add one manually:
 ```html
 <div class="category-label">The Command Center</div>
 ```
