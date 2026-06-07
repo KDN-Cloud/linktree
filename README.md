@@ -16,25 +16,35 @@ Forked from [johnggli/linktree](https://github.com/johnggli/linktree).
 |---|---|
 | `index.html` | The links page — profile, categories, and all link entries |
 | `style.css` | All styling including the animated starfield background |
-| `generator.html` | Local link generator tool — open in any browser, no server needed |
+| `generator/index.html` | Local link generator tool — open in any browser, no server needed |
+| `generator/assets/style.css` | Generator UI styles and themes |
+| `generator/assets/templates.js` | Template build and preview logic |
+| `generator/assets/app.js` | App state, UI, categories, history, copy |
 | `CNAME` | Custom domain for GitHub Pages (`linktree.aklein.pro`) |
 
 ---
 
 ## Using the generator
 
-`generator.html` is a local tool for building link snippets without hand-editing HTML. Open it directly in your browser.
+`generator/index.html` is a local tool for building link snippets without hand-editing HTML. Open it directly in your browser — no server required.
 
-**Three template styles:**
-- **AK / Terminal** — dark mono card with Font Awesome icon and optional `//` suffix label
-- **Minimal** — clean white card with arrow prefix, no icons
-- **Bold Dark** — uppercase black button with optional symbol prefix
+**Eight template styles:**
+- **AK / Terminal** — dark mono card, Font Awesome/Bootstrap icons, optional `//` suffix label
+- **Minimal** — clean white card, arrow prefix, no icons
+- **Bold Dark** — black button, uppercase, optional symbol prefix
+- **Glassmorphism** — frosted glass card, translucent border, gradient backdrop
+- **Retro Terminal** — green-on-black CRT style, blinking cursor
+- **Pill / Rounded** — indigo-to-purple gradient pill, modern app feel
+- **Editorial** — serif italic, underline-only border, typographic
+- **Corporate** — white card, icon + label + optional sublabel, drop shadow
 
 **Four UI themes:** Light, GitHub Dark, Navy, Dark Purple — switchable from the topbar.
 
-Fill in your label, URL, icon class, and category, then copy the generated snippet and paste it into `index.html`. Use the history panel to save links mid-session.
+Fill in your label, URL, icon class, and category, then copy the generated snippet and paste it into `index.html`. Use the history panel to save links mid-session (session only — clears on refresh).
 
-Font Awesome icon classes: [fontawesome.com/icons](https://fontawesome.com/icons) (free tier only)
+**Icon sources (both free):**
+- Font Awesome free tier: [fontawesome.com/search?m=free](https://fontawesome.com/search?m=free) — e.g. `fa-brands fa-github`, `fa-solid fa-music`
+- Bootstrap Icons (all free): [icons.getbootstrap.com](https://icons.getbootstrap.com) — e.g. `bi bi-github`, `bi bi-music-note`
 
 ---
 
@@ -108,9 +118,10 @@ Step-by-step guide including the Cloudflare DNS gotcha, OG tags, category labels
 
 MIT — see [LICENSE.md](LICENSE.md)
 
-Original project by [John Emerson / johnggli](https://github.com/johnggli/linktree). Forked and extended by [Anthony Klein / KDN-Cloud](https://github.com/KDN-Cloud).
+Copyright (c) 2021 John Emerson — original project at [johnggli/linktree](https://github.com/johnggli/linktree)  
+Copyright (c) 2026 Anthony Klein / [KDN-Cloud](https://github.com/KDN-Cloud) — fork, generator, and extensions
 
 ---
 
-Made with ❤️ by Anthony Klein 👋 [Get in touch](https://links.aklein.pro)
+Made with ❤️  by Anthony Klein 👋 [Get in touch](https://links.aklein.pro)
 
