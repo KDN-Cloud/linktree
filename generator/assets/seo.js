@@ -94,10 +94,11 @@ function setSeoTab(t) {
 
 /* ── BUILD PROFILE BLOCK ── */
 function buildProfileBlock() {
-  var name    = seoVal('seo-name')    || 'Your Name';
-  var handle  = seoVal('seo-username')|| name;
-  var image   = seoVal('seo-image')   || '';
-  var quote   = seoVal('seo-quote')   || '';
+  var name    = seoVal('seo-name')      || 'Your Name';
+  var handle  = seoVal('seo-username')  || name;
+  var image   = seoVal('seo-image')     || '';
+  var quote   = seoVal('seo-quote')     || '';
+  var hashtag = seoVal('seo-hashtag')   || '';
   var imgAlt  = seoVal('seo-image-alt') || name + ' profile photo';
 
   var lines = [];
@@ -110,6 +111,11 @@ function buildProfileBlock() {
     lines.push('  <p class="quote">"' + esc(quote) + '"</p>');
   }
   lines.push('</header>');
+  if (hashtag) {
+    lines.push('');
+    lines.push('<!-- paste this at the bottom of .link-container, before </div> -->');
+    lines.push('<div id="hashtag">' + esc(hashtag) + '</div>');
+  }
 
   return lines.join('\n');
 }
@@ -262,7 +268,7 @@ function initSeo() {
     'seo-canonical','seo-image','seo-image-alt','seo-image-w','seo-image-h',
     'seo-site-name','seo-job-title','seo-bio','seo-website',
     'seo-org-name','seo-org-url','seo-city','seo-region','seo-country',
-    'seo-quote'
+    'seo-quote','seo-hashtag'
   ];
   ids.forEach(function(id) {
     var el = document.getElementById(id);
