@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linktree Generator — KDN-Cloud</title>
+
+  <!-- Icon fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Generator styles -->
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-theme="dark">
+
+  <!-- ── TOPBAR ── -->
+  <div class="topbar">
+    <a class="topbar-brand" href="https://github.com/KDN-Cloud/linktree" target="_blank">
+      <i class="fa-brands fa-github" style="font-size:16px;opacity:.8"></i>
+      KDN-Cloud<span class="sep">/</span>linktree
+      <span class="topbar-badge">generator</span>
+    </a>
+    <div class="theme-switcher">
+      <span class="theme-label">Theme</span>
+      <button class="theme-btn"        data-t="light"  onclick="setTheme('light')"  title="Light"></button>
+      <button class="theme-btn active" data-t="dark"   onclick="setTheme('dark')"   title="GitHub Dark"></button>
+      <button class="theme-btn"        data-t="navy"   onclick="setTheme('navy')"   title="Navy"></button>
+      <button class="theme-btn"        data-t="purple" onclick="setTheme('purple')" title="Purple"></button>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ── STEP 1: Template ── -->
+    <div class="panel">
+      <div class="panel-head">
+        <i class="fa-solid fa-layer-group" style="font-size:11px;color:var(--text3)"></i>
+        <span class="panel-title">Template</span>
+        <span class="panel-sub">step 1 of 3</span>
+      </div>
+      <div class="panel-body">
+        <div class="tpl-grid">
+
+          <div class="tpl active" onclick="setTpl('ak')" id="tpl-ak">
+            <div class="tpl-prev">
+              <div class="pk"><i class="fa-brands fa-github"></i><span class="lbl">GITHUB</span><span class="dv">//</span><span class="sf">CODE</span></div>
+              <div class="pk"><i class="fa-solid fa-terminal"></i><span class="lbl">SYS_LOG</span></div>
+            </div>
+            <div class="tpl-name">AK / Terminal</div>
+            <div class="tpl-desc">Dark mono, FA icons, optional // suffix</div>
+          </div>
+
+          <div class="tpl" onclick="setTpl('minimal')" id="tpl-minimal">
+            <div class="tpl-prev">
+              <div class="pm"><span class="arr">→</span> GitHub</div>
+              <div class="pm"><span class="arr">→</span> LinkedIn</div>
+            </div>
+            <div class="tpl-name">Minimal</div>
+            <div class="tpl-desc">Clean white cards, arrow prefix, no icons</div>
+          </div>
+
+          <div class="tpl" onclick="setTpl('bold')" id="tpl-bold">
+            <div class="tpl-prev">
+              <div class="pb">★ GITHUB</div>
+              <div class="pb">♫ SOUNDCLOUD</div>
+            </div>
+            <div class="tpl-name">Bold Dark</div>
+            <div class="tpl-desc">Black buttons, uppercase, symbol prefix</div>
+          </div>
+
+          <div class="tpl" onclick="setTpl('glass')" id="tpl-glass">
+            <div class="tpl-prev" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:4px;padding:4px">
+              <div class="pg"><i class="fa-brands fa-github"></i> GitHub</div>
+              <div class="pg"><i class="fa-solid fa-music"></i> Music</div>
+            </div>
+            <div class="tpl-name">Glassmorphism</div>
+            <div class="tpl-desc">Frosted glass card, translucent border</div>
+          </div>
+
+          <div class="tpl" onclick="setTpl('retro')" id="tpl-retro">
+            <div class="tpl-prev">
+              <div class="pr"><i class="fa-solid fa-terminal"></i> GITHUB<span class="cur">_</span></div>
+              <div class="pr"><i class="fa-solid fa-radio"></i> RADIO</div>
+            </div>
+            <div class="tpl-name">Retro Terminal</div>
+            <div class="tpl-desc">Green-on-black CRT, blinking cursor</div>
+          </div>
+
+          <div class="tpl" onclick="setTpl('pill')" id="tpl-pill">
+            <div class="tpl-prev">
+              <div class="pp"><i class="fa-brands fa-github"></i> GitHub</div>
+              <div class="pp"><i class="fa-solid fa-briefcase"></i> Portfolio</div>
+            </div>
+            <div class="tpl-name">Pill / Rounded</div>
+            <div class="tpl-desc">Gradient pill buttons, modern app feel</div>
+          </div>
+
+          <div class="tpl" onclick="setTpl('editorial')" id="tpl-editorial">
+            <div class="tpl-prev" style="background:#fff;border-radius:4px;padding:4px 6px">
+              <div class="pe">GitHub <span class="ep">→</span></div>
+              <div class="pe">LinkedIn <span class="ep">→</span></div>
+            </div>
+            <div class="tpl-name">Editorial</div>
+            <div class="tpl-desc">Serif italic, underline only, typographic</div>
+          </div>
+
+          <div class="tpl" onclick="setTpl('corporate')" id="tpl-corporate">
+            <div class="tpl-prev" style="background:#f6f8fa;border-radius:4px;padding:4px">
+              <div class="pc"><i class="fa-brands fa-github"></i><span class="pc-lbl">GitHub</span><span class="pc-sub">Code</span></div>
+              <div class="pc"><i class="fa-solid fa-briefcase"></i><span class="pc-lbl">Portfolio</span><span class="pc-sub">Work</span></div>
+            </div>
+            <div class="tpl-name">Corporate</div>
+            <div class="tpl-desc">White card, left-aligned, icon + sublabel</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <!-- ── STEP 2: Link Details ── -->
+      <div>
+        <div class="panel">
+          <div class="panel-head">
+            <i class="fa-solid fa-link" style="font-size:11px;color:var(--text3)"></i>
+            <span class="panel-title">Link details</span>
+            <span class="panel-sub">step 2 of 3</span>
+          </div>
+          <div class="panel-body">
+
+            <div class="field">
+              <label for="inp-label">Display label</label>
+              <input type="text" id="inp-label" placeholder="GITHUB" oninput="update()">
+            </div>
+
+            <div class="field">
+              <label for="inp-url">URL</label>
+              <input type="text" id="inp-url" placeholder="https://github.com/you" oninput="update()">
+            </div>
+
+            <!-- icon: ak, glass, retro, pill, corporate -->
+            <div id="icon-section">
+              <div class="field">
+                <label>Font Awesome / Bootstrap icon class</label>
+                <div class="icon-row">
+                  <input type="text" id="inp-icon" placeholder="fa-brands fa-github" oninput="update()">
+                  <div class="icon-prev" id="icon-prev" title="Live icon preview — updates as you type">
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+                </div>
+                <div class="hint">
+                  <strong>Font Awesome (free tier):</strong> <a href="https://fontawesome.com/search?m=free" target="_blank">fontawesome.com/icons</a> &mdash;
+                  e.g. <code>fa-brands fa-github</code>, <code>fa-solid fa-briefcase</code>, <code>fa-solid fa-music</code><br>
+                  <strong>Bootstrap Icons (all free):</strong> <a href="https://icons.getbootstrap.com/" target="_blank">icons.getbootstrap.com</a> &mdash;
+                  e.g. <code>bi bi-github</code>, <code>bi bi-briefcase</code>, <code>bi bi-music-note</code>
+                </div>
+              </div>
+            </div>
+
+            <!-- suffix: ak only -->
+            <div id="suffix-section">
+              <div class="field">
+                <label for="inp-suffix">Suffix label <span class="opt">after // — optional</span></label>
+                <input type="text" id="inp-suffix" placeholder="CODE_REPOSITORY" oninput="update()">
+                <div class="hint">Appears after <code>//</code> in the terminal style — e.g. <code>CODE_REPOSITORY</code>, <code>PERSONAL_BLOG</code>, <code>RADIO_STATION</code>. Watch the preview update live.</div>
+              </div>
+            </div>
+
+            <!-- prefix: bold only -->
+            <div id="prefix-section" style="display:none">
+              <div class="field">
+                <label for="inp-prefix">Prefix symbol <span class="opt">optional</span></label>
+                <input type="text" id="inp-prefix" placeholder="★ or ♫" oninput="update()">
+              </div>
+            </div>
+
+            <!-- sublabel: corporate only -->
+            <div id="sublabel-section" style="display:none">
+              <div class="field">
+                <label for="inp-sublabel">Sublabel <span class="opt">secondary line — optional</span></label>
+                <input type="text" id="inp-sublabel" placeholder="e.g. Code Repository" oninput="update()">
+                <div class="hint">Shown as smaller secondary text next to the main label — great for adding context like a job title or platform name.</div>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="field">
+              <label>Category / section</label>
+              <div class="hint" style="margin-bottom:8px">Groups links under a section header in your page. Select a category before copying — use the <strong>Full block</strong> tab to include the header in the output.</div>
+              <div class="cat-chips" id="cat-chips"></div>
+              <div class="cat-add">
+                <input type="text" id="new-cat" placeholder="New category…" onkeydown="if(event.key==='Enter')addCat()">
+                <button onclick="addCat()">+ Add</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 3: Output ── -->
+      <div>
+        <div class="panel">
+          <div class="panel-head">
+            <i class="fa-solid fa-code" style="font-size:11px;color:var(--text3)"></i>
+            <span class="panel-title">Output</span>
+            <span class="panel-sub">step 3 of 3</span>
+          </div>
+          <div class="panel-body">
+
+            <div class="prev-label">Preview</div>
+            <div class="prev-wrap">
+              <div id="live-preview" style="width:100%"></div>
+            </div>
+
+            <div class="tabs">
+              <div class="tab active" onclick="setTab('snippet')" id="tab-snippet" title="Just the link element — paste inside an existing category block">Snippet</div>
+              <div class="tab"        onclick="setTab('full')"    id="tab-full"    title="Includes the category-label div above the link — use when starting a new section">Full block</div>
+            </div>
+            <div class="code-wrap">
+              <div class="code-block">
+                <pre id="output-pre"></pre>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn-primary" onclick="copyOut()">
+                <i class="fa-regular fa-copy"></i> Copy
+              </button>
+              <button class="btn btn-ghost" onclick="saveHist()">
+                <i class="fa-regular fa-bookmark"></i> Save
+              </button>
+              <span class="copy-ok" id="copy-ok">
+                <i class="fa-solid fa-check"></i> Copied
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── History ── -->
+        <div class="panel">
+          <div class="panel-head">
+            <i class="fa-solid fa-clock-rotate-left" style="font-size:11px;color:var(--text3)"></i>
+            <span class="panel-title">History</span>
+            <span class="panel-sub" title="History is cleared when you close or refresh this page">session only</span>
+          </div>
+          <div class="panel-body">
+            <div class="hist-list" id="hist-list">
+              <div class="empty">No saved links yet.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /.wrap -->
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <span class="footer-brand">generator/index.html</span>
+    <span>
+      <a href="https://github.com/KDN-Cloud/linktree" target="_blank">KDN-Cloud/linktree</a>
+      &middot; forked from
+      <a href="https://github.com/johnggli/linktree" target="_blank">johnggli/linktree</a>
+      &middot; local tool — not deployed
+    </span>
+  </div>
+
+  <!-- Templates must load before app so buildSnippet/buildPreview are defined -->
+  <script src="assets/templates.js"></script>
+  <script src="assets/app.js"></script>
+
+</body>
+</html>
