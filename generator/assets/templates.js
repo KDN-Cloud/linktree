@@ -21,7 +21,8 @@ function buildSnippet(v, tpl) {
 
   if (tpl === 'ak') {
     var ic = v.icon ? '<i class="' + v.icon + '"></i> ' : '';
-    var sf = v.suffix ? '\n  <span class="divider">//</span> ' + v.suffix : '';
+    var div = v.divider || '//';
+    var sf = v.suffix ? '\n  <span class="divider">' + div + '</span> ' + v.suffix : '';
     return '<a class="link" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  ' + ic + lbl + sf + '\n</a>';
 
   } else if (tpl === 'minimal') {
@@ -77,7 +78,8 @@ function buildPreview(v, tpl) {
 
   if (tpl === 'ak') {
     var ic = v.icon ? '<i class="' + v.icon + '"></i>' : '';
-    var sf = v.suffix ? '<span class="dv">//</span><span class="suf">' + v.suffix + '</span>' : '';
+    var div = v.divider || '//';
+    var sf = v.suffix ? '<span class="dv">' + div + '</span><span class="suf">' + v.suffix + '</span>' : '';
     return '<div class="prev-ak">' + ic + '<span class="lbl">' + lbl + '</span>' + sf + '</div>';
 
   } else if (tpl === 'minimal') {

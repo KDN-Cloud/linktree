@@ -107,6 +107,7 @@ function getV() {
     url:      (document.getElementById('inp-url').value.trim()      || 'https://github.com/you'),
     icon:     (document.getElementById('inp-icon')     ? document.getElementById('inp-icon').value.trim()     : ''),
     suffix:   (document.getElementById('inp-suffix')   ? document.getElementById('inp-suffix').value.trim()   : ''),
+    divider:  (document.getElementById('inp-divider')  ? document.getElementById('inp-divider').value.trim() || '//' : '//'),
     prefix:   (document.getElementById('inp-prefix')   ? document.getElementById('inp-prefix').value.trim()   : ''),
     sublabel: (document.getElementById('inp-sublabel') ? document.getElementById('inp-sublabel').value.trim() : ''),
   };
@@ -191,6 +192,7 @@ function loadHist(i) {
   document.getElementById('inp-url').value   = h.vals.url;
   if (document.getElementById('inp-icon'))     document.getElementById('inp-icon').value     = h.vals.icon     || '';
   if (document.getElementById('inp-suffix'))   document.getElementById('inp-suffix').value   = h.vals.suffix   || '';
+  if (document.getElementById('inp-divider'))  document.getElementById('inp-divider').value  = h.vals.divider  || '//';
   if (document.getElementById('inp-prefix'))   document.getElementById('inp-prefix').value   = h.vals.prefix   || '';
   if (document.getElementById('inp-sublabel')) document.getElementById('inp-sublabel').value = h.vals.sublabel || '';
   if (!cats.includes(h.cat)) cats.push(h.cat);

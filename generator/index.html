@@ -426,9 +426,14 @@
               <!-- suffix: ak only -->
               <div id="suffix-section">
                 <div class="field">
-                  <label for="inp-suffix">Suffix label <span class="opt">after // — optional</span></label>
+                  <label for="inp-suffix">Suffix label <span class="opt">after divider — optional</span></label>
                   <input type="text" id="inp-suffix" placeholder="CODE_REPOSITORY" oninput="update()">
-                  <div class="hint">Appears after <code>//</code> in the terminal style — e.g. <code>CODE_REPOSITORY</code>, <code>PERSONAL_BLOG</code>, <code>RADIO_STATION</code>. Watch the preview update live.</div>
+                  <div class="hint">Appears after the divider in the terminal style — e.g. <code>CODE_REPOSITORY</code>, <code>PERSONAL_BLOG</code>, <code>RADIO_STATION</code>. Watch the preview update live.</div>
+                </div>
+                <div class="field">
+                  <label for="inp-divider">Divider symbol <span class="opt">defaults to //</span></label>
+                  <input type="text" id="inp-divider" placeholder="//" value="//" oninput="update()">
+                  <div class="hint">Separator between label and suffix — e.g. <code>//</code>, <code>|</code>, <code>·</code>, <code>::</code>, <code>→</code></div>
                 </div>
               </div>
 
