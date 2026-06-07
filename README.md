@@ -20,6 +20,7 @@ Forked from [johnggli/linktree](https://github.com/johnggli/linktree).
 | `generator/assets/style.css` | Generator UI styles and themes |
 | `generator/assets/templates.js` | Template build and preview logic |
 | `generator/assets/app.js` | App state, UI, categories, history, copy |
+| `generator/assets/screenshots/` | Generator UI screenshots |
 | `CNAME` | Custom domain for GitHub Pages (`linktree.aklein.pro`) |
 
 ---
@@ -58,23 +59,23 @@ Fill in your label, URL, icon class, and category, then copy the generated snipp
 
 ## Deploying your own
 
+> **DNS provider note:** The steps below reference Cloudflare because that's what I use, but any DNS provider works. The only requirement is that you can create a `CNAME` record (or `A` records for an apex domain) pointing to GitHub Pages. The gray cloud / proxy warning is Cloudflare-specific — skip it if you're using a different provider.
+
 1. **Fork this repo** to your GitHub account or organization
 2. Edit `index.html` — swap in your name, photo URL, and links
 3. Edit `CNAME` — replace `linktree.aklein.pro` with your domain
 4. Enable **GitHub Pages** in repo Settings → Pages → set source branch to `master`, root directory
-5. Add a DNS record in Cloudflare:
-   
+5. Add a DNS record pointing to GitHub Pages:
    ```
    Type:    CNAME
    Name:    linktree   (or whatever subdomain you want)
    Target:  <your-org-or-username>.github.io
-   Proxy:   DNS only (gray cloud — NOT orange)
    ```
-7. Back in GitHub Pages settings, confirm your custom domain and enable **Enforce HTTPS**
+6. Back in GitHub Pages settings, confirm your custom domain and enable **Enforce HTTPS**
 
 DNS propagation typically takes 2–10 minutes. GitHub will show a warning until verification completes — that's normal.
 
-> **Why gray cloud?** GitHub Pages verifies DNS by checking that your domain resolves to their servers. Cloudflare's proxy intercepts that check and breaks certificate provisioning. Gray cloud = DNS passthrough = works correctly.
+> **Cloudflare users:** Set the record to **DNS only** (gray cloud, not orange). Cloudflare's proxy intercepts GitHub's domain verification check and breaks certificate provisioning. Gray cloud = DNS passthrough = works correctly.
 
 ---
 
@@ -100,9 +101,9 @@ The `//` is a hardcoded visual divider built into the template style. What comes
 <div class="category-label">The Command Center</div>
 ```
 
-**Alias/redirect domain:** GitHub Pages serves one domain per repo. For a second URL pointing to the same page, set up a Cloudflare Redirect Rule: `links.yourdomain.com/*` → `https://linktree.yourdomain.com/$1` (301).
+**Alias/redirect domain:** GitHub Pages serves one domain per repo. For a second URL pointing to the same page, set up a redirect at your DNS provider: `links.yourdomain.com/*` → `https://linktree.yourdomain.com/$1` (301). Cloudflare users can do this with a Redirect Rule in under a minute.
 
-**Open Graph tags:** The template includes basic meta tags. For proper link previews in Slack, Discord, etc., add full OG tags with `og:image`, dimensions, and `application/ld+json` structured data.
+**SEO and meta tags:** Use the generator's Page Setup & SEO tab to generate your full `<head>` block — primary meta tags, Open Graph, Twitter Card, and JSON-LD schema. Fill in the fields, copy the output, paste into `index.html`.
 
 ---
 
@@ -117,7 +118,7 @@ The `//` is a hardcoded visual divider built into the template style. What comes
 
 ## Full writeup
 
-Step-by-step guide including the Cloudflare DNS gotcha, OG tags, category labels, and generator walkthrough:
+Step-by-step guide including the DNS setup, OG tags, category labels, and generator walkthrough:
 
 [b.aklein.me — Ditching Linktree: Host Your Own Link Hub on GitHub Pages](https://b.aklein.me/2026/06/07/self-hosted-linktree-on-github-pages.html)
 
