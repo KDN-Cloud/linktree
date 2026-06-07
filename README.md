@@ -63,13 +63,14 @@ Fill in your label, URL, icon class, and category, then copy the generated snipp
 3. Edit `CNAME` — replace `linktree.aklein.pro` with your domain
 4. Enable **GitHub Pages** in repo Settings → Pages → set source branch to `master`, root directory
 5. Add a DNS record in Cloudflare:
+   
    ```
    Type:    CNAME
    Name:    linktree   (or whatever subdomain you want)
    Target:  <your-org-or-username>.github.io
    Proxy:   DNS only (gray cloud — NOT orange)
    ```
-6. Back in GitHub Pages settings, confirm your custom domain and enable **Enforce HTTPS**
+7. Back in GitHub Pages settings, confirm your custom domain and enable **Enforce HTTPS**
 
 DNS propagation typically takes 2–10 minutes. GitHub will show a warning until verification completes — that's normal.
 
