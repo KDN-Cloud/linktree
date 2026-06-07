@@ -51,11 +51,41 @@ function setTab(t) {
 function renderCats() {
   var w = document.getElementById('cat-chips');
   w.innerHTML = '';
-  cats.forEach(function(c) {
+  cats.forEach(function(c, i) {
     var d = document.createElement('div');
     d.className = 'chip' + (c === activeCat ? ' active' : '');
-    d.textContent = c;
-    d.onclick = function() { activeCat = c; renderCats(); update(); };
+
+    var lbl = document.createElement('span');
+    lbl.textContent = c;
+    lbl.style.cursor = 'pointer';
+    lbl.onclick = function() {
+      if (c === activeCat) {
+        // deselect — fall back to first other category
+        activeCat = cats.filter(function(x){ return x !== c; })[0] || '';
+      } else {
+        activeCat = c;
+      }
+      renderCats(); update();
+    };
+
+    d.appendChild(lbl);
+
+    // delete button — only show if more than one category exists
+    if (cats.length > 1) {
+      var del = document.createElement('button');
+      del.className = 'chip-del';
+      del.innerHTML = '&times;';
+      del.title = 'Remove category';
+      del.setAttribute('aria-label', 'Remove ' + c);
+      del.onclick = function(e) {
+        e.stopPropagation();
+        cats.splice(i, 1);
+        if (activeCat === c) activeCat = cats[0] || '';
+        renderCats(); update();
+      };
+      d.appendChild(del);
+    }
+
     w.appendChild(d);
   });
 }
