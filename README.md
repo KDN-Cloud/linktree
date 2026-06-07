@@ -120,7 +120,14 @@ To add one manually:
 
 **Alias/redirect domain:** GitHub Pages serves one domain per repo. For a second URL pointing to the same page, set up a redirect at your DNS provider: `links.yourdomain.com/*` → `https://linktree.yourdomain.com/$1` (301). Cloudflare users can do this with a Redirect Rule in under a minute.
 
-**SEO and meta tags:** Use the generator's Page Setup & SEO tab to generate your full `<head>` block — primary meta tags, Open Graph, Twitter Card, and JSON-LD schema. Fill in the fields, copy the output, paste into `index.html`.
+**Google Analytics:** The template includes Google Analytics via two script tags at the bottom of the `<head>`. If you don't want analytics, just delete both lines:
+
+```html
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script src="/gtag.js"></script>
+```
+
+You can also delete `gtag.js` from the repo root. The page works identically without them.
 
 ---
 
