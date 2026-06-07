@@ -2,7 +2,7 @@
 
 A self-hosted Linktree alternative built on plain HTML and CSS, deployed free via GitHub Pages with a custom domain through Cloudflare. No framework, no build step, no platform dependency.
 
-**Live:** [linktree.aklein.pro](https://linktree.aklein.pro) · **Canonical:** [links.aklein.pro](https://links.aklein.pro)
+**Live:** [links.aklein.pro](https://links.aklein.pro) · **Canonical:** [linktree.aklein.pro](https://linktree.aklein.pro)
 
 Forked from [johnggli/linktree](https://github.com/johnggli/linktree).
 
@@ -74,6 +74,8 @@ https://avatars.githubusercontent.com/u/YOUR_NUMERIC_USER_ID
 </a>
 ```
 
+The `//` is a hardcoded visual divider built into the template style. What comes after it — the suffix label — is entirely up to you: `CODE_REPOSITORY`, `PERSONAL_BLOG`, `RADIO_STATION`, anything. Leave out the `<span class="divider">` line entirely if you don't want a suffix on that link.
+
 **Adding a category label:**
 ```html
 <div class="category-label">The Command Center</div>
@@ -110,5 +112,5 @@ Original project by [John Emerson / johnggli](https://github.com/johnggli/linktr
 
 ---
 
-Made with ❤️  by Anthony Klein 👋 [Get in touch](https://links.aklein.pro)
+Made with ❤️ by Anthony Klein 👋 [Get in touch](https://links.aklein.pro)
 
