@@ -372,7 +372,7 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
               <label>Font Awesome icon class</label>
               <div class="icon-row">
                 <input type="text" id="inp-icon" placeholder="fa-brands fa-github" oninput="update()">
-                <div class="icon-prev" id="icon-prev"><i class="fa-brands fa-github"></i></div>
+                <div class="icon-prev" id="icon-prev" title="Live icon preview — updates as you type"><i class="fa-brands fa-github"></i></div>
               </div>
               <div class="hint">
                 Browse <a href="https://fontawesome.com/icons" target="_blank">fontawesome.com/icons</a> (free tier) &mdash;
@@ -383,6 +383,7 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
             <div class="field">
               <label for="inp-suffix">Suffix label <span class="opt">after // — optional</span></label>
               <input type="text" id="inp-suffix" placeholder="CODE_REPOSITORY" oninput="update()">
+              <div class="hint">Appears after <code>//</code> in the terminal style — e.g. <code>CODE_REPOSITORY</code>, <code>PERSONAL_BLOG</code>, <code>RADIO_STATION</code>. Watch the preview update live.</div>
             </div>
           </div>
 
@@ -397,6 +398,7 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
 
           <div class="field">
             <label>Category / section</label>
+            <div class="hint" style="margin-bottom:8px">Groups links under a section header in your page. Select a category before copying — use <strong>Full block</strong> tab above to include the header in the output.</div>
             <div class="cat-chips" id="cat-chips"></div>
             <div class="cat-add">
               <input type="text" id="new-cat" placeholder="New category…" onkeydown="if(event.key==='Enter')addCat()">
@@ -424,8 +426,8 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
           </div>
 
           <div class="tabs">
-            <div class="tab active" onclick="setTab('snippet')" id="tab-snippet">Snippet</div>
-            <div class="tab" onclick="setTab('full')" id="tab-full">Full block</div>
+            <div class="tab active" onclick="setTab('snippet')" id="tab-snippet" title="Just the link element — paste inside an existing category block">Snippet</div>
+            <div class="tab" onclick="setTab('full')" id="tab-full" title="Includes the category-label div above the link — use when starting a new section">Full block</div>
           </div>
           <div class="code-wrap">
             <div class="code-block">
@@ -453,6 +455,7 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
         <div class="panel-head">
           <i class="fa-solid fa-clock-rotate-left" style="font-size:11px;color:var(--text3)"></i>
           <span class="panel-title">History</span>
+          <span class="panel-sub" title="History is cleared when you close or refresh this page">session only</span>
         </div>
         <div class="panel-body">
           <div class="hist-list" id="hist-list">
