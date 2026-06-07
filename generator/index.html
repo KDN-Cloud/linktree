@@ -96,6 +96,12 @@
                 <input type="text" id="seo-website" placeholder="https://aklein.pro/">
               </div>
 
+              <div class="field">
+                <label for="seo-quote">Quote / tagline <span class="opt">optional</span></label>
+                <input type="text" id="seo-quote" placeholder="All dreams are within reach...">
+                <div class="hint">Displayed below your name on the page as <code>&lt;p class="quote"&gt;</code>. Leave blank to omit.</div>
+              </div>
+
             </div>
           </div>
 
@@ -247,8 +253,9 @@
             </div>
             <div class="panel-body">
               <div class="seo-tabs">
-                <div class="seo-tab active" onclick="setSeoTab('meta')" id="seo-tab-meta" title="Full meta tag block for the head section">Meta tags</div>
-                <div class="seo-tab" onclick="setSeoTab('schema')" id="seo-tab-schema" title="JSON-LD schema script block for the head section">JSON-LD schema</div>
+                <div class="seo-tab active" onclick="setSeoTab('meta')"    id="seo-tab-meta"    title="Full meta tag block for the head section">Meta tags</div>
+                <div class="seo-tab"        onclick="setSeoTab('schema')"  id="seo-tab-schema"  title="JSON-LD schema script block for the head section">JSON-LD schema</div>
+                <div class="seo-tab"        onclick="setSeoTab('profile')" id="seo-tab-profile" title="Header block with profile image, username, and quote — paste into the body of index.html">Profile block</div>
               </div>
               <div class="code-wrap">
                 <div class="code-block">
