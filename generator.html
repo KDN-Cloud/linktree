@@ -87,7 +87,6 @@ body{
   width:20px;height:20px;border-radius:50%;cursor:pointer;
   border:2px solid rgba(255,255,255,.15);
   transition:border-color .15s,transform .15s;
-  position:relative;
 }
 .theme-btn:hover{transform:scale(1.15);border-color:rgba(255,255,255,.4)}
 .theme-btn.active{border-color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.3)}
@@ -115,8 +114,9 @@ body{
 .panel-sub{font-size:11px;color:var(--text3);margin-left:auto;font-variant-numeric:tabular-nums}
 .panel-body{padding:14px}
 
-/* ── TEMPLATE CARDS ── */
-.tpl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+/* ── TEMPLATE GRID — 4 cols for 8 templates ── */
+.tpl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:680px){.tpl-grid{grid-template-columns:repeat(2,1fr)}}
 .tpl{
   border:1px solid var(--border);border-radius:var(--radius);
   padding:10px 9px;cursor:pointer;background:var(--surface2);
@@ -135,12 +135,31 @@ body{
 .tpl-name{font-size:11px;font-weight:600;color:var(--text);margin-bottom:1px}
 .tpl-desc{font-size:10px;color:var(--text2);line-height:1.4}
 
-/* template previews */
+/* ── TEMPLATE PREVIEW SWATCHES ── */
+/* AK Terminal */
 .pk{background:#0d1117;border:1px solid #21262d;border-radius:4px;padding:4px 7px;font-size:8px;color:#8b949e;font-family:monospace;display:flex;align-items:center;gap:4px;letter-spacing:.02em}
 .pk i{font-size:7px;color:#388bfd}.pk .lbl{color:#c9d1d9;font-weight:600}.pk .dv{color:#388bfd;margin:0 2px}.pk .sf{color:#8b949e}
-.pm{border:1px solid #d0d7de;border-radius:4px;padding:4px 8px;font-size:9px;color:#24292f;background:#fff;display:flex;align-items:center;gap:4px;font-family:-apple-system,sans-serif}
+/* Minimal */
+.pm{border:1px solid #d0d7de;border-radius:4px;padding:4px 8px;font-size:9px;color:#24292f;background:#fff;display:flex;align-items:center;gap:4px}
 .pm .arr{color:#57606a}
-.pb{background:#0d1117;border-radius:4px;padding:5px 8px;font-size:8px;color:#f0f6fc;font-weight:700;display:flex;align-items:center;gap:4px;letter-spacing:.08em;font-family:-apple-system,sans-serif}
+/* Bold Dark */
+.pb{background:#0d1117;border-radius:4px;padding:5px 8px;font-size:8px;color:#f0f6fc;font-weight:700;display:flex;align-items:center;gap:4px;letter-spacing:.08em}
+/* Glassmorphism */
+.pg{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:4px 8px;font-size:9px;color:#fff;display:flex;align-items:center;gap:4px;backdrop-filter:blur(4px);font-family:-apple-system,sans-serif}
+.pg i{font-size:8px;color:#a78bfa}
+/* Retro Terminal */
+.pr{background:#000;border:1px solid #00cc44;border-radius:3px;padding:4px 7px;font-size:8px;color:#00cc44;font-family:monospace;display:flex;align-items:center;gap:4px;letter-spacing:.06em}
+.pr .cur{color:#00cc44;animation:blink 1s step-end infinite}.pr i{font-size:7px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+/* Pill */
+.pp{background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:20px;padding:5px 12px;font-size:9px;color:#fff;display:flex;align-items:center;gap:5px;font-family:-apple-system,sans-serif;font-weight:600}
+.pp i{font-size:8px}
+/* Editorial */
+.pe{border:none;border-bottom:1px solid #1f2328;padding:4px 0;font-size:9px;color:#1f2328;background:transparent;display:flex;align-items:center;gap:6px;font-family:Georgia,serif;font-style:italic}
+.pe .ep{font-style:normal;color:#57606a;font-size:8px;font-family:-apple-system,sans-serif}
+/* Corporate */
+.pc{background:#fff;border:1px solid #d0d7de;border-radius:5px;padding:5px 9px;font-size:9px;color:#1f2328;display:flex;align-items:center;gap:6px;box-shadow:0 1px 3px rgba(0,0,0,.08);font-family:-apple-system,sans-serif}
+.pc i{color:#0969da;font-size:8px}.pc .pc-lbl{font-weight:600}.pc .pc-sub{color:#57606a;font-size:8px}
 
 /* ── FORM ── */
 .field{margin-bottom:12px}
@@ -153,10 +172,7 @@ input[type=text]{
   padding:6px 10px;outline:none;font-family:inherit;
   transition:border-color .15s,box-shadow .15s;
 }
-input[type=text]:focus{
-  border-color:var(--accent);
-  box-shadow:0 0 0 3px var(--accent-subtle);
-}
+input[type=text]:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-subtle)}
 input[type=text]::placeholder{color:var(--text3)}
 .icon-row{display:flex;gap:6px;align-items:center}
 .icon-row input{flex:1}
@@ -201,15 +217,35 @@ hr{border:none;border-top:1px solid var(--border);margin:12px 0}
   border-radius:var(--radius);padding:10px 12px;
   min-height:46px;display:flex;align-items:center;margin-bottom:12px;
 }
+
 /* live preview renderers */
 .prev-ak{background:#0d1117;border:1px solid #21262d;border-radius:5px;padding:9px 14px;font-size:12px;color:#8b949e;font-family:'SFMono-Regular',Consolas,monospace;display:flex;align-items:center;gap:8px;width:100%;letter-spacing:.02em}
-.prev-ak .lbl{color:#c9d1d9;font-weight:600}.prev-ak .dv{color:#388bfd;margin:0 3px}.prev-ak .suf{color:#8b949e;font-size:11px}
-.prev-ak i{color:#388bfd;font-size:13px}
-.prev-min{border:1px solid #d0d7de;border-radius:5px;padding:9px 14px;font-size:13px;color:#1f2328;background:#fff;display:flex;align-items:center;gap:8px;width:100%;font-family:-apple-system,sans-serif}
-.prev-min .arr{color:#57606a}
-.prev-bold{background:#0d1117;border-radius:5px;padding:10px 16px;font-size:12px;color:#f0f6fc;font-weight:700;display:flex;align-items:center;gap:8px;width:100%;letter-spacing:.1em;font-family:-apple-system,sans-serif}
+.prev-ak .lbl{color:#c9d1d9;font-weight:600}.prev-ak .dv{color:#388bfd;margin:0 3px}.prev-ak .suf{color:#8b949e;font-size:11px}.prev-ak i{color:#388bfd;font-size:13px}
 
-/* ── OUTPUT ── */
+.prev-min{border:1px solid #d0d7de;border-radius:5px;padding:9px 14px;font-size:13px;color:#1f2328;background:#fff;display:flex;align-items:center;gap:8px;width:100%}
+.prev-min .arr{color:#57606a}
+
+.prev-bold{background:#0d1117;border-radius:5px;padding:10px 16px;font-size:12px;color:#f0f6fc;font-weight:700;display:flex;align-items:center;gap:8px;width:100%;letter-spacing:.1em}
+
+.prev-glass{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:10px 14px;font-size:12px;color:#fff;display:flex;align-items:center;gap:8px;width:100%;backdrop-filter:blur(8px);background-clip:padding-box;box-shadow:0 4px 16px rgba(0,0,0,.3);background-image:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.05))}
+.prev-glass i{color:#a78bfa}
+
+.prev-retro{background:#000;border:1px solid #00cc44;border-radius:3px;padding:9px 14px;font-size:12px;color:#00cc44;font-family:'SFMono-Regular',Consolas,monospace;display:flex;align-items:center;gap:8px;width:100%;letter-spacing:.06em;box-shadow:0 0 8px rgba(0,204,68,.2)}
+.prev-retro i{color:#00cc44}.prev-retro .cur{animation:blink 1s step-end infinite}
+
+.prev-pill{background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:24px;padding:10px 20px;font-size:12px;color:#fff;font-weight:600;display:flex;align-items:center;gap:8px;width:100%;box-shadow:0 4px 12px rgba(99,102,241,.4)}
+.prev-pill i{font-size:13px}
+
+.prev-edit{border:none;border-bottom:2px solid #1f2328;padding:10px 2px;font-size:13px;color:#1f2328;background:transparent;display:flex;align-items:center;justify-content:space-between;width:100%;font-family:Georgia,serif;font-style:italic}
+.prev-edit .ep{font-style:normal;color:#57606a;font-size:11px;font-family:-apple-system,sans-serif}
+
+.prev-corp{background:#fff;border:1px solid #d0d7de;border-radius:6px;padding:10px 14px;font-size:12px;color:#1f2328;display:flex;align-items:center;gap:10px;width:100%;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.prev-corp i{color:#0969da;font-size:14px;width:18px;text-align:center}
+.prev-corp .cc-lbl{font-weight:600;flex:1}
+.prev-corp .cc-sub{font-size:11px;color:#57606a}
+.prev-corp .cc-arr{color:#8c959f;font-size:11px}
+
+/* ── OUTPUT TABS ── */
 .tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:0}
 .tab{
   font-size:11px;font-weight:500;color:var(--text2);
@@ -223,10 +259,7 @@ hr{border:none;border-top:1px solid var(--border);margin:12px 0}
   background:var(--code-bg);border:1px solid var(--border);
   border-radius:var(--radius);padding:10px 12px;
 }
-.code-block pre{
-  font-family:var(--mono);font-size:11px;line-height:1.7;
-  color:var(--text);white-space:pre-wrap;word-break:break-all;
-}
+.code-block pre{font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-all}
 
 /* ── BUTTONS ── */
 .btn-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
@@ -235,23 +268,12 @@ hr{border:none;border-top:1px solid var(--border);margin:12px 0}
   padding:5px 14px;cursor:pointer;transition:all .15s;font-weight:500;
   display:inline-flex;align-items:center;gap:5px;
 }
-.btn-primary{
-  background:var(--accent);color:var(--accent-text);
-  border:1px solid var(--accent);
-}
+.btn-primary{background:var(--accent);color:var(--accent-text);border:1px solid var(--accent)}
 .btn-primary:hover{opacity:.88}
-.btn-ghost{
-  background:transparent;color:var(--text);
-  border:1px solid var(--border);
-}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
 .btn-ghost:hover{background:var(--surface2);border-color:var(--border2)}
-.copy-ok{
-  font-size:11px;font-weight:500;color:#2da44e;
-  opacity:0;transition:opacity .3s;
-}
-body[data-theme="dark"] .copy-ok,
-body[data-theme="navy"] .copy-ok,
-body[data-theme="purple"] .copy-ok{color:#3fb950}
+.copy-ok{font-size:11px;font-weight:500;color:#2da44e;opacity:0;transition:opacity .3s}
+body[data-theme="dark"] .copy-ok,body[data-theme="navy"] .copy-ok,body[data-theme="purple"] .copy-ok{color:#3fb950}
 .copy-ok.show{opacity:1}
 
 /* ── HISTORY ── */
@@ -264,17 +286,9 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
 .hist-item:hover{border-color:var(--border2);background:var(--surface3)}
 .hist-icon{color:var(--text3);font-size:11px;width:14px;text-align:center;flex-shrink:0}
 .hist-lbl{font-size:12px;font-weight:500;color:var(--text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hist-tpl{
-  font-size:10px;font-weight:500;color:var(--accent);
-  border:1px solid var(--border);padding:1px 6px;border-radius:10px;
-  flex-shrink:0;font-family:var(--mono);
-}
+.hist-tpl{font-size:10px;font-weight:500;color:var(--accent);border:1px solid var(--border);padding:1px 6px;border-radius:10px;flex-shrink:0;font-family:var(--mono)}
 .hist-cat{font-size:10px;color:var(--text3);flex-shrink:0;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.hist-del{
-  background:none;border:none;color:var(--text3);cursor:pointer;
-  font-size:14px;line-height:1;padding:0 2px;flex-shrink:0;
-  transition:color .15s;
-}
+.hist-del{background:none;border:none;color:var(--text3);cursor:pointer;font-size:14px;line-height:1;padding:0 2px;flex-shrink:0;transition:color .15s}
 .hist-del:hover{color:#f85149}
 .empty{font-size:12px;color:var(--text3);text-align:center;padding:1.25rem 0}
 
@@ -318,14 +332,16 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
     </div>
     <div class="panel-body">
       <div class="tpl-grid">
+
         <div class="tpl active" onclick="setTpl('ak')" id="tpl-ak">
           <div class="tpl-prev">
-            <div class="pk"><i class="fa-brands fa-github"></i><span class="lbl">GITHUB</span><span class="dv">//</span><span class="sf">CODE_REPO</span></div>
+            <div class="pk"><i class="fa-brands fa-github"></i><span class="lbl">GITHUB</span><span class="dv">//</span><span class="sf">CODE</span></div>
             <div class="pk"><i class="fa-solid fa-terminal"></i><span class="lbl">SYS_LOG</span></div>
           </div>
           <div class="tpl-name">AK / Terminal</div>
-          <div class="tpl-desc">Dark mono, Font Awesome icons, optional // suffix</div>
+          <div class="tpl-desc">Dark mono, FA icons, optional // suffix</div>
         </div>
+
         <div class="tpl" onclick="setTpl('minimal')" id="tpl-minimal">
           <div class="tpl-prev">
             <div class="pm"><span class="arr">→</span> GitHub</div>
@@ -334,6 +350,7 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
           <div class="tpl-name">Minimal</div>
           <div class="tpl-desc">Clean white cards, arrow prefix, no icons</div>
         </div>
+
         <div class="tpl" onclick="setTpl('bold')" id="tpl-bold">
           <div class="tpl-prev">
             <div class="pb">★ GITHUB</div>
@@ -342,6 +359,52 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
           <div class="tpl-name">Bold Dark</div>
           <div class="tpl-desc">Black buttons, uppercase, symbol prefix</div>
         </div>
+
+        <div class="tpl" onclick="setTpl('glass')" id="tpl-glass">
+          <div class="tpl-prev" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:4px;padding:4px">
+            <div class="pg"><i class="fa-brands fa-github"></i> GitHub</div>
+            <div class="pg"><i class="fa-solid fa-music"></i> Music</div>
+          </div>
+          <div class="tpl-name">Glassmorphism</div>
+          <div class="tpl-desc">Frosted glass card, translucent border</div>
+        </div>
+
+        <div class="tpl" onclick="setTpl('retro')" id="tpl-retro">
+          <div class="tpl-prev">
+            <div class="pr"><i class="fa-solid fa-terminal"></i> GITHUB<span class="cur">_</span></div>
+            <div class="pr"><i class="fa-solid fa-radio"></i> RADIO</div>
+          </div>
+          <div class="tpl-name">Retro Terminal</div>
+          <div class="tpl-desc">Green-on-black CRT, blinking cursor</div>
+        </div>
+
+        <div class="tpl" onclick="setTpl('pill')" id="tpl-pill">
+          <div class="tpl-prev">
+            <div class="pp"><i class="fa-brands fa-github"></i> GitHub</div>
+            <div class="pp"><i class="fa-solid fa-briefcase"></i> Portfolio</div>
+          </div>
+          <div class="tpl-name">Pill / Rounded</div>
+          <div class="tpl-desc">Gradient pill buttons, modern app feel</div>
+        </div>
+
+        <div class="tpl" onclick="setTpl('editorial')" id="tpl-editorial">
+          <div class="tpl-prev" style="background:#fff;border-radius:4px;padding:4px 6px">
+            <div class="pe">GitHub <span class="ep">→</span></div>
+            <div class="pe">LinkedIn <span class="ep">→</span></div>
+          </div>
+          <div class="tpl-name">Editorial</div>
+          <div class="tpl-desc">Serif italic, underline only, typographic</div>
+        </div>
+
+        <div class="tpl" onclick="setTpl('corporate')" id="tpl-corporate">
+          <div class="tpl-prev" style="background:#f6f8fa;border-radius:4px;padding:4px">
+            <div class="pc"><i class="fa-brands fa-github"></i><span class="pc-lbl">GitHub</span><span class="pc-sub">Code</span></div>
+            <div class="pc"><i class="fa-solid fa-briefcase"></i><span class="pc-lbl">Portfolio</span><span class="pc-sub">Work</span></div>
+          </div>
+          <div class="tpl-name">Corporate</div>
+          <div class="tpl-desc">White card, left-aligned, icon + sublabel</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -367,6 +430,7 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
             <input type="text" id="inp-url" placeholder="https://github.com/you" oninput="update()">
           </div>
 
+          <!-- icon: ak, glass, retro, pill, corporate -->
           <div id="icon-section">
             <div class="field">
               <label>Font Awesome icon class</label>
@@ -379,7 +443,10 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
                 e.g. <code>fa-brands fa-github</code>, <code>fa-solid fa-briefcase</code>, <code>fa-solid fa-music</code>
               </div>
             </div>
+          </div>
 
+          <!-- suffix: ak only -->
+          <div id="suffix-section">
             <div class="field">
               <label for="inp-suffix">Suffix label <span class="opt">after // — optional</span></label>
               <input type="text" id="inp-suffix" placeholder="CODE_REPOSITORY" oninput="update()">
@@ -387,6 +454,7 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
             </div>
           </div>
 
+          <!-- prefix: bold only -->
           <div id="prefix-section" style="display:none">
             <div class="field">
               <label for="inp-prefix">Prefix symbol <span class="opt">optional</span></label>
@@ -394,11 +462,20 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
             </div>
           </div>
 
+          <!-- sublabel: corporate only -->
+          <div id="sublabel-section" style="display:none">
+            <div class="field">
+              <label for="inp-sublabel">Sublabel <span class="opt">secondary line — optional</span></label>
+              <input type="text" id="inp-sublabel" placeholder="e.g. Code Repository" oninput="update()">
+              <div class="hint">Shown as smaller secondary text next to the main label — great for adding context like a job title or platform name.</div>
+            </div>
+          </div>
+
           <hr>
 
           <div class="field">
             <label>Category / section</label>
-            <div class="hint" style="margin-bottom:8px">Groups links under a section header in your page. Select a category before copying — use <strong>Full block</strong> tab above to include the header in the output.</div>
+            <div class="hint" style="margin-bottom:8px">Groups links under a section header in your page. Select a category before copying — use the <strong>Full block</strong> tab above to include the header in the output.</div>
             <div class="cat-chips" id="cat-chips"></div>
             <div class="cat-add">
               <input type="text" id="new-cat" placeholder="New category…" onkeydown="if(event.key==='Enter')addCat()">
@@ -482,6 +559,13 @@ body[data-theme="purple"] .copy-ok{color:#3fb950}
 var tpl = 'ak', activeTab = 'snippet', activeCat = 'The Command Center', hist = [];
 var cats = ['The Command Center', 'The Sound Booth', 'Active Uplinks'];
 
+// which templates show which input sections
+var TPL_ICON     = ['ak','glass','retro','pill','corporate'];
+var TPL_SUFFIX   = ['ak'];
+var TPL_PREFIX   = ['bold'];
+var TPL_SUBLABEL = ['corporate'];
+var ALL_TPLS     = ['ak','minimal','bold','glass','retro','pill','editorial','corporate'];
+
 function setTheme(t) {
   document.body.setAttribute('data-theme', t);
   document.querySelectorAll('.theme-btn').forEach(function(b) {
@@ -491,11 +575,13 @@ function setTheme(t) {
 
 function setTpl(t) {
   tpl = t;
-  ['ak','minimal','bold'].forEach(function(x) {
+  ALL_TPLS.forEach(function(x) {
     document.getElementById('tpl-' + x).classList.toggle('active', x === t);
   });
-  document.getElementById('icon-section').style.display   = t === 'ak'   ? '' : 'none';
-  document.getElementById('prefix-section').style.display = t === 'bold' ? '' : 'none';
+  document.getElementById('icon-section').style.display     = TPL_ICON.includes(t)     ? '' : 'none';
+  document.getElementById('suffix-section').style.display   = TPL_SUFFIX.includes(t)   ? '' : 'none';
+  document.getElementById('prefix-section').style.display   = TPL_PREFIX.includes(t)   ? '' : 'none';
+  document.getElementById('sublabel-section').style.display = TPL_SUBLABEL.includes(t) ? '' : 'none';
   update();
 }
 
@@ -528,25 +614,43 @@ function addCat() {
 
 function getV() {
   return {
-    label:  (document.getElementById('inp-label').value.trim() || 'GITHUB'),
-    url:    (document.getElementById('inp-url').value.trim()   || 'https://github.com/you'),
-    icon:   (document.getElementById('inp-icon')   ? document.getElementById('inp-icon').value.trim()   : ''),
-    suffix: (document.getElementById('inp-suffix') ? document.getElementById('inp-suffix').value.trim() : ''),
-    prefix: (document.getElementById('inp-prefix') ? document.getElementById('inp-prefix').value.trim() : ''),
+    label:    (document.getElementById('inp-label').value.trim()    || 'GITHUB'),
+    url:      (document.getElementById('inp-url').value.trim()      || 'https://github.com/you'),
+    icon:     (document.getElementById('inp-icon')     ? document.getElementById('inp-icon').value.trim()     : ''),
+    suffix:   (document.getElementById('inp-suffix')   ? document.getElementById('inp-suffix').value.trim()   : ''),
+    prefix:   (document.getElementById('inp-prefix')   ? document.getElementById('inp-prefix').value.trim()   : ''),
+    sublabel: (document.getElementById('inp-sublabel') ? document.getElementById('inp-sublabel').value.trim() : ''),
   };
 }
 
 function buildSnippet(v) {
+  var lbl = v.label, url = v.url;
   if (tpl === 'ak') {
     var ic = v.icon ? '<i class="' + v.icon + '"></i> ' : '';
     var sf = v.suffix ? '\n  <span class="divider">//</span> ' + v.suffix : '';
-    return '<a class="link" href="' + v.url + '" target="_blank" rel="noopener noreferrer">\n  ' + ic + v.label + sf + '\n</a>';
+    return '<a class="link" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  ' + ic + lbl + sf + '\n</a>';
   } else if (tpl === 'minimal') {
-    return '<a class="link" href="' + v.url + '" target="_blank" rel="noopener noreferrer">\n  \u2192 ' + v.label + '\n</a>';
-  } else {
+    return '<a class="link" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  \u2192 ' + lbl + '\n</a>';
+  } else if (tpl === 'bold') {
     var pr = v.prefix ? v.prefix + ' ' : '';
-    return '<a class="link" href="' + v.url + '" target="_blank" rel="noopener noreferrer">\n  ' + pr + v.label.toUpperCase() + '\n</a>';
+    return '<a class="link" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  ' + pr + lbl.toUpperCase() + '\n</a>';
+  } else if (tpl === 'glass') {
+    var ic = v.icon ? '<i class="' + v.icon + '"></i> ' : '';
+    return '<a class="link link-glass" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  ' + ic + lbl + '\n</a>';
+  } else if (tpl === 'retro') {
+    var ic = v.icon ? '<i class="' + v.icon + '"></i> ' : '';
+    return '<a class="link link-retro" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  ' + ic + lbl.toUpperCase() + '<span class="cursor">_</span>\n</a>';
+  } else if (tpl === 'pill') {
+    var ic = v.icon ? '<i class="' + v.icon + '"></i> ' : '';
+    return '<a class="link link-pill" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  ' + ic + lbl + '\n</a>';
+  } else if (tpl === 'editorial') {
+    return '<a class="link link-editorial" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  ' + lbl + ' <span class="arrow">\u2192</span>\n</a>';
+  } else if (tpl === 'corporate') {
+    var ic = v.icon ? '<i class="' + v.icon + '"></i>\n  ' : '';
+    var sl = v.sublabel ? '\n  <span class="sublabel">' + v.sublabel + '</span>' : '';
+    return '<a class="link link-corporate" href="' + url + '" target="_blank" rel="noopener noreferrer">\n  ' + ic + '<span class="link-label">' + lbl + '</span>' + sl + '\n</a>';
   }
+  return '';
 }
 
 function buildFull(v) {
@@ -554,16 +658,33 @@ function buildFull(v) {
 }
 
 function buildPreview(v) {
+  var lbl = v.label || 'GITHUB', url = v.url;
   if (tpl === 'ak') {
     var ic = v.icon ? '<i class="' + v.icon + '"></i>' : '';
     var sf = v.suffix ? '<span class="dv">//</span><span class="suf">' + v.suffix + '</span>' : '';
-    return '<div class="prev-ak">' + ic + '<span class="lbl">' + (v.label || 'GITHUB') + '</span>' + sf + '</div>';
+    return '<div class="prev-ak">' + ic + '<span class="lbl">' + lbl + '</span>' + sf + '</div>';
   } else if (tpl === 'minimal') {
-    return '<div class="prev-min"><span class="arr">→</span> ' + (v.label || 'GitHub') + '</div>';
-  } else {
+    return '<div class="prev-min"><span class="arr">→</span> ' + lbl + '</div>';
+  } else if (tpl === 'bold') {
     var pr = v.prefix ? v.prefix + ' ' : '';
-    return '<div class="prev-bold">' + pr + (v.label || 'GITHUB').toUpperCase() + '</div>';
+    return '<div class="prev-bold">' + pr + lbl.toUpperCase() + '</div>';
+  } else if (tpl === 'glass') {
+    var ic = v.icon ? '<i class="' + v.icon + '"></i>' : '';
+    return '<div class="prev-glass">' + ic + ' ' + lbl + '</div>';
+  } else if (tpl === 'retro') {
+    var ic = v.icon ? '<i class="' + v.icon + '"></i>' : '';
+    return '<div class="prev-retro">' + ic + ' ' + lbl.toUpperCase() + '<span class="cur">_</span></div>';
+  } else if (tpl === 'pill') {
+    var ic = v.icon ? '<i class="' + v.icon + '"></i>' : '';
+    return '<div class="prev-pill">' + ic + ' ' + lbl + '</div>';
+  } else if (tpl === 'editorial') {
+    return '<div class="prev-edit">' + lbl + '<span class="ep">→</span></div>';
+  } else if (tpl === 'corporate') {
+    var ic = v.icon ? '<i class="' + v.icon + '"></i>' : '';
+    var sl = v.sublabel ? '<span class="cc-sub">' + v.sublabel + '</span>' : '';
+    return '<div class="prev-corp">' + ic + '<span class="cc-lbl">' + lbl + '</span>' + sl + '<span class="cc-arr">›</span></div>';
   }
+  return '';
 }
 
 function update() {
@@ -620,9 +741,10 @@ function loadHist(i) {
   setTpl(h.tpl);
   document.getElementById('inp-label').value = h.vals.label;
   document.getElementById('inp-url').value   = h.vals.url;
-  if (document.getElementById('inp-icon'))   document.getElementById('inp-icon').value   = h.vals.icon   || '';
-  if (document.getElementById('inp-suffix')) document.getElementById('inp-suffix').value = h.vals.suffix || '';
-  if (document.getElementById('inp-prefix')) document.getElementById('inp-prefix').value = h.vals.prefix || '';
+  if (document.getElementById('inp-icon'))     document.getElementById('inp-icon').value     = h.vals.icon     || '';
+  if (document.getElementById('inp-suffix'))   document.getElementById('inp-suffix').value   = h.vals.suffix   || '';
+  if (document.getElementById('inp-prefix'))   document.getElementById('inp-prefix').value   = h.vals.prefix   || '';
+  if (document.getElementById('inp-sublabel')) document.getElementById('inp-sublabel').value = h.vals.sublabel || '';
   if (!cats.includes(h.cat)) cats.push(h.cat);
   activeCat = h.cat;
   renderCats(); update();
